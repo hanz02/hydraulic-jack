@@ -1,0 +1,89 @@
+.hero {
+	background-color: rgba(0, 0, 0, 0.7);
+	background-image: url(../img/hero-bg.jpg);
+	background-position: center;
+	background-size: cover;
+	background-blend-mode: overlay;
+	background-attachment: fixed;
+	color: white !important;
+	text-align: center;
+}
+
+.hero .flex {
+	flex-direction: column;
+}
+
+.hero .home-banner .banner-title hr {
+	background-color: white;
+}
+
+.hero .home-banner .banner-title {
+	border: rgba(255, 255, 255, 1) solid 1.5px;
+	margin-bottom: 1rem;
+	padding: 0.5rem 1rem;
+	width: min(100%, 30rem);
+
+	animation: fadeIn 1000ms ease-out;
+}
+
+.hero .home-banner .banner-body h4 {
+	animation: fadeIn 1500ms ease-out;
+}
+
+.hero .home-banner .banner-body a {
+	display: inline-block;
+	color: white;
+	border: rgba(255, 255, 255, 1) solid 1px;
+	transition: all ease-in-out 350ms;
+
+	animation: fadeIn 1500ms ease-out;
+}
+
+.hero .home-banner .banner-body a:hover,
+.hero .home-banner .banner-body a:focus {
+	outline: none;
+	background-color: white;
+	color: black;
+}
+
+@media all and (min-width: 370px) {
+	.hero .home-banner .banner-title {
+		padding: 1.5rem 2.1rem;
+	}
+}
+
+@media all and (min-width: 500px) {
+	.hero .home-banner .banner-title {
+		padding: 1.5rem 3.3rem;
+	}
+}
+
+@media all and (min-width: 764px) {
+	.hero .home-banner .banner-title {
+		padding: 1.5rem 4.3rem;
+	}
+
+	.hero .banner-title h1 {
+		font-size: 1.4rem;
+	}
+
+	.hero .banner-title h3 {
+		font-size: 1.1rem;
+	}
+
+	.hero .banner-body h4 {
+		font-size: 1rem;
+	}
+}
+
+@media all and (min-width: 1010px) {
+	.hero .home-banner .banner-title {
+		padding: 1.5rem 5rem;
+	}
+}
+
+@media all and (max-height: 425px) {
+	.hero {
+		height: auto;
+	}
+}

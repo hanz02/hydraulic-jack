@@ -1,0 +1,159 @@
+body {
+	position: relative;
+	height: 100vh;
+}
+
+main {
+	padding: 0;
+}
+
+.admin_nav.nav {
+	width: 100%;
+	height: 50px;
+	background: white;
+	box-shadow: none;
+	position: fixed;
+	top: 0;
+
+	z-index: 999;
+
+	transition: all ease-in-out 350ms;
+}
+
+.admin_nav.nav .admin_hamburger {
+	justify-content: flex-start;
+	width: auto;
+	margin: 0;
+	cursor: pointer;
+}
+
+.admin_nav.nav .grid {
+	grid-template-areas: initial;
+	grid-template-columns: 1fr 1fr 1fr;
+	height: 100%;
+	padding: 0 1rem;
+	position: static;
+}
+
+.admin_nav.nav .grid > * {
+	grid-area: initial;
+}
+
+.admin_nav.nav .nav-profile.flex {
+	justify-content: flex-end;
+}
+
+.side-menu {
+	position: fixed;
+	top: 50px;
+	left: 0;
+	bottom: 0;
+	width: 100%;
+	background-color: white;
+	z-index: 999;
+
+	transform: translateX(-100%);
+	transition: all 250ms ease-in;
+}
+
+.side-menu.active {
+	transform: translateX(0%);
+	transition: all 250ms ease-in;
+}
+
+.side-menu ul {
+	margin: 0;
+	height: 100%;
+}
+
+.side-menu .flex {
+	flex-direction: column;
+	align-items: flex-start;
+}
+
+.side-menu ul li {
+	list-style: none;
+	padding: 2rem 0;
+}
+
+.side-menu ul li a {
+	font-weight: 900;
+}
+
+.nav-profile {
+	position: relative;
+	width: fit-content;
+	justify-self: flex-end;
+	height: 110%;
+}
+.profile-menu {
+	left: auto;
+	right: 0;
+	transform: translate(0, 0);
+	transition: all 250ms ease-in;
+}
+
+.nav-profile:hover .profile-menu {
+	display: block;
+	transition: all 250ms ease-in;
+}
+
+.nav .username {
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	max-width: 80px;
+	display: none;
+}
+
+.side-menu .fas {
+	font-size: 1.5rem;
+	margin: 0 1rem;
+}
+
+.side-menu a {
+	font-size: 0.9rem;
+}
+
+.side-menu a:hover {
+	color: #538490;
+}
+
+@media all and (min-width: 450px) {
+	.nav .username {
+		display: block;
+	}
+}
+
+@media all and (min-width: 500px) {
+	.side-menu {
+		width: 300px;
+		box-shadow: 1px 1px 3px 0 rgba(0, 0, 0, 0.4);
+	}
+}
+
+@media all and (min-width: 1000px) {
+	.admin_nav.nav .grid {
+		padding: 0 2rem;
+	}
+
+	.profile-menu {
+		background-color: #202020;
+		width: 200px;
+		transition: all ease-in-out 350ms;
+		top: 100%;
+	}
+
+	.profile-menu ul {
+		background-color: #202020;
+	}
+
+	.profile-menu:hover {
+		background-color: #202020;
+		transition: all ease-in-out 350ms;
+	}
+
+	.profile-menu ul li a {
+		color: white;
+	}
+}

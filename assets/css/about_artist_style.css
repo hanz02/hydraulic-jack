@@ -1,0 +1,139 @@
+.about_works {
+	background: white;
+}
+
+.about_artist {
+	position: relative;
+}
+
+.about_artist h1,
+h2,
+h3,
+h4 {
+	margin: 0;
+}
+
+.parallax_bg {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+
+	background-color: rgba(0, 0, 0, 0.7);
+	background-image: url(../img/Corridor.jpg);
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: left center;
+	background-blend-mode: overlay;
+	color: white !important;
+	text-align: center;
+	z-index: -1;
+
+	padding-bottom: 3rem;
+	display: none;
+}
+
+.about_artist .banner {
+	color: white;
+	padding-bottom: 3rem;
+	animation: fadeIn 1000ms ease-out;
+}
+
+.about_artist .flex {
+	flex-direction: column;
+}
+
+#first.parallax_img {
+	height: 350px;
+	width: 100%;
+
+	background-image: url(../img/jill_s\ room.jpg);
+}
+
+#second.parallax_img,
+#first.parallax_img {
+	position: relative;
+
+	background-color: rgba(255, 255, 255, 0.4);
+	background-image: url(../img/jill_s\ room.jpg);
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-blend-mode: overlay;
+	color: white !important;
+	text-align: center;
+	z-index: -1;
+}
+
+#second.parallax_img {
+	height: 350px;
+	width: 100%;
+	background-color: rgba(255, 255, 255, 0.4);
+	background-image: url(../img/about_artist.jpg);
+}
+
+.about_jack p {
+	line-height: 30px;
+}
+
+.porfolio_works .flex {
+	flex-wrap: nowrap;
+	flex-direction: column;
+}
+.porfolio_works .iframe_container {
+	position: relative;
+	display: flex;
+	margin: 1rem;
+	width: 100%;
+	height: 200px;
+}
+
+.porfolio_works .iframe_container iframe {
+	width: 100%;
+	height: 100%;
+}
+
+@media all and (min-width: 600px) {
+	.porfolio_works .flex {
+		flex-wrap: wrap;
+		flex-direction: row;
+	}
+
+	.porfolio_works .iframe_container {
+		width: 500px;
+		height: 300px;
+	}
+}
+
+@media all and (min-width: 800px) {
+	.about_artist {
+		background-position-x: -10px;
+		background-position-y: center;
+		background-size: 110%;
+
+		height: 80vh;
+		min-height: 400px;
+	}
+
+	.porfolio_works .iframe_container {
+		width: 300px;
+		height: 175px;
+	}
+}
+
+@media all and (min-width: 1060px) {
+	.about_artist {
+		background-position-x: -10px;
+		background-position-y: center;
+		background-size: 110%;
+
+		height: 80vh;
+		min-height: 400px;
+	}
+
+	.porfolio_works .iframe_container {
+		width: 400px;
+		height: 200px;
+	}
+}

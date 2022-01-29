@@ -1,0 +1,43 @@
+.admin_home {
+	height: 100vh;
+}
+
+.admin_home .flex {
+	text-align: center;
+	flex-wrap: wrap;
+	justify-content: space-evenly;
+}
+
+.admin_home h2 {
+	flex: 0 0 100%;
+	font-size: 1.7rem;
+}
+
+.home_select {
+	text-align: center;
+	/* border: 1px solid #000; */
+	padding: 1rem;
+	margin: 2rem;
+	width: 100%;
+	max-width: 190px;
+
+	transition: 300ms ease-in all;
+}
+
+.home_select p {
+	font-weight: 900;
+}
+
+.home_icon {
+	margin-bottom: 1rem;
+}
+
+.home_icon .fas {
+	font-size: 3rem;
+}
+
+.home_select:hover .home_icon .fas,
+.home_select:hover {
+	color: #538490;
+	transition: 300ms ease-in all;
+}

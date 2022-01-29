@@ -1,0 +1,44 @@
+.base_error {
+	min-height: 100vh;
+	width: 100%;
+}
+
+.base_error > .flex {
+	min-height: inherit;
+	width: 100%;
+}
+
+.base_error .message {
+	max-width: 900 px;
+	margin: auto;
+}
+
+.base_error .message .fas {
+	font-size: 9rem;
+	color: #f55c47;
+}
+
+.base_error .message__text {
+	color: black;
+}
+
+.base_error a {
+	border: 1px solid black;
+
+	padding: 0.7rem 3rem;
+	margin-top: 2rem;
+
+	font-weight: 900;
+	transition: all 350ms ease-out;
+}
+
+.base_error a:hover {
+	color: white;
+	background: black;
+}
+
+@media all and (min-width: 500px) {
+	.base_error .message__text {
+		margin-top: 3rem;
+	}
+}

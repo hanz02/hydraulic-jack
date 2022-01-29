@@ -1,0 +1,539 @@
+.checkout,
+.payment,
+.receipt {
+	margin-bottom: 4rem;
+	min-height: 95vh;
+
+	/* border: 3px solid blue; */
+}
+
+.checkout > .grid {
+	grid-template-columns: 1fr;
+
+	/* border: 3px solid green; */
+}
+
+.checkout .items-list {
+	margin-bottom: 3rem;
+}
+
+.checkout .items-list.grid {
+	grid-template-columns: 1fr;
+	/* border: 3px solid green; */
+	gap: 3rem;
+	grid-auto-rows: min-content;
+}
+
+.checkout .item.grid {
+	grid-template-columns: 1fr;
+	/* border: 3px solid blue; */
+	gap: 1rem;
+	align-items: center;
+}
+
+.checkout .item .product-img-card {
+	max-width: 140px;
+	height: fit-content;
+	width: 84%;
+	margin: 1.2rem auto;
+}
+
+.checkout .checkout-form > .grid {
+	grid-template-columns: 1fr;
+	gap: 1rem;
+}
+
+.checkout .checkout-form .card {
+	margin: 2rem auto;
+}
+
+.checkout .checkout-form p {
+	margin: 0 auto;
+}
+
+.checkout .total .value {
+	color: black;
+	text-shadow: -2px 2px rgba(0, 0, 0, 0.157);
+}
+
+.checkout .checkout-form .email-field {
+	border: 0;
+	border: 1px solid rgb(0, 0, 0, 0.6);
+	border-radius: 50px;
+	padding: 0.5rem 0.8rem;
+
+	width: 100%;
+}
+
+.checkout .checkout-form .email-field:focus {
+	outline: none;
+}
+
+.checkout .term-cond .flex {
+	justify-content: flex-start;
+}
+
+.checkout .term-cond-text a {
+	color: #5f939a;
+}
+
+.checkout .place-order-btn {
+	border: 1px solid rgb(0, 0, 0, 0.6);
+	color: white;
+	background: black;
+	padding: 0.7rem 1rem;
+}
+
+.checkout .stock-empty-alert {
+	border: 2px solid red;
+	color: red;
+}
+
+.alert {
+	display: none;
+
+	box-shadow: none;
+	border: red solid 2px;
+	color: red;
+	width: 100%;
+	margin-top: 0.8rem;
+}
+
+.alert .flex {
+	justify-content: space-between;
+}
+
+.checkout .checkout-form .alert .alert-msg {
+	margin: 0.7rem auto;
+}
+
+.close-btn {
+	cursor: pointer;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+/** PAYMENT PAGE  */
+.payment > .grid {
+	grid-template-columns: 1fr;
+}
+
+.payment .pay-option-labels.grid {
+	grid-template-columns: 1fr;
+}
+
+.payment .pay-option-labels .option {
+	line-height: 35px;
+	background: black;
+	color: white;
+	border: rgba(0, 0, 0, 0.2) solid 1px;
+	padding: 0 1rem;
+
+	cursor: pointer;
+}
+
+.payment .pay-option-labels .option:last-child {
+	border: none;
+}
+
+.payment .pay-option-labels .option.active {
+	background: white;
+	color: black;
+
+	box-shadow: 0 2px 1px rgba(0, 0, 0, 0.3), 0 -2px 1px rgba(0, 0, 0, 0.3);
+}
+
+/** CREDIT DEBIT CARD FORM  */
+.payment .card-form-wrap.active {
+	max-width: 500px;
+	margin-left: auto;
+	margin-right: auto;
+
+	display: block;
+}
+
+.payment .card-form-wrap {
+	display: none;
+}
+
+.payment .pay-card-img.flex {
+	justify-content: flex-start;
+}
+
+.payment .pay-card-img img {
+	width: 40px;
+}
+
+.payment .mandatory .asterisk {
+	color: red;
+}
+
+.payment .form-group {
+	margin-bottom: 1rem;
+}
+
+.payment .form-group.grid {
+	grid-template-columns: 1fr;
+}
+
+.payment #date-cvv.grid {
+	grid-template-columns: 1fr;
+}
+
+.payment #date-cvv div:last-child {
+	width: 50%;
+}
+
+.payment .form-group input {
+	border: none;
+	border: solid 1px rgba(0, 0, 0, 0.8);
+	padding: 0.6rem 1rem;
+}
+
+.payment .form-group input:focus {
+	outline: none;
+	box-shadow: 0 0 0 1px rgba(0, 0, 0, 1);
+}
+
+.payment .pay-btn {
+	width: 100%;
+	margin-top: 2rem;
+	background: black;
+	color: white;
+
+	border: 1px solid #000;
+}
+
+/** ONLINE BANKING FORM  */
+.payment .online-banking-form-wrap.active {
+	display: block;
+}
+
+.payment .online-banking-form-wrap {
+	display: none;
+}
+
+.payment .online-banking-form-wrap .grid {
+	grid-template-columns: 1fr;
+	grid-auto-rows: 1fr;
+
+	gap: 1rem;
+}
+
+.payment .bank-option {
+	display: flex;
+	align-items: center;
+	justify-content: flex-start;
+
+	border: solid 1px rgba(0, 0, 0, 0.3);
+	padding: 0 1rem;
+
+	cursor: pointer;
+}
+
+.payment .bank-option.active {
+	border: none;
+	box-shadow: 0 0 0 3px #de8971;
+}
+
+.payment .bank-option img {
+	width: 60px;
+}
+
+.payment .bank-option p {
+	font-size: 0.8rem;
+	margin-left: 1rem;
+	margin-right: 1rem;
+}
+
+.payment .bank-option .select-tick {
+	margin-left: auto;
+}
+
+.payment .bank-option .select-tick .fas {
+	color: #e45826;
+}
+
+/*~ Title label targeted below */
+.payment .total p > span:first-child {
+	margin-right: 1rem;
+}
+
+.alert {
+	height: fit-content;
+}
+
+.payment .total .value {
+	color: black;
+	text-shadow: -2px 2px rgba(0, 0, 0, 0.157);
+}
+
+/** RECEIPT PAGE */
+.receipt .receipt-head-title > * {
+	margin: 0;
+	margin-bottom: 0.8rem;
+}
+
+.receipt .receipt-head-title > h4 {
+	font-weight: 900;
+	color: #de8971;
+}
+
+.receipt .receipt-head-title.grid {
+	grid-template-columns: 1fr;
+}
+
+.receipt .receipt-head.grid {
+	grid-template-columns: 1fr;
+	gap: 1rem;
+}
+
+.receipt .payment-detail .column-body {
+	display: inline-block;
+	margin-top: 0.5rem;
+	font-weight: 900;
+}
+
+.receipt .receipt-products {
+	font-size: 0.9rem;
+}
+
+.receipt .receipt-products .grid {
+	grid-template-columns: 1fr;
+	gap: 0.5rem;
+}
+
+.receipt .product-img-card {
+	max-width: 100px;
+	margin: 0.8rem;
+}
+
+.receipt .receipt-btn {
+	margin-bottom: 3rem;
+}
+
+.receipt .receipt-btn a {
+	display: inline-block;
+	border: 1px solid rgba(0, 0, 0, 0.8);
+	padding: 0.7rem 1rem;
+}
+
+.receipt .receipt-btn a:hover {
+	background-color: black;
+	color: white;
+}
+
+@media all and (min-width: 350px) {
+	.checkout .container {
+		width: 100%;
+	}
+
+	.checkout .items-list {
+		margin-bottom: 2rem;
+	}
+
+	.checkout .items-list.grid {
+		gap: 2rem;
+	}
+
+	.checkout .item.grid {
+		grid-template-columns: 1fr 1fr 0.5fr;
+		gap: 1rem;
+	}
+
+	.checkout .item .product-name,
+	.checkout .item .item-price,
+	.checkout .item .quantity-lbl {
+		font-size: 0.8rem;
+	}
+
+	.checkout .item .item-price {
+		text-align: center;
+	}
+
+	.payment .cost-summary.card {
+		padding: 1rem 1.7rem;
+	}
+
+	.receipt .receipt-products .grid {
+		grid-template-columns: 1fr 1fr;
+		gap: 0;
+	}
+
+	.receipt .product-img-card {
+		height: fit-content;
+		max-width: 90px;
+		grid-row: 1 / span 3;
+	}
+}
+
+@media all and (min-width: 420px) {
+	.receipt .receipt-products .grid {
+		grid-template-columns: 1fr 2fr;
+		gap: 0;
+	}
+}
+
+@media all and (min-width: 550px) {
+	.checkout .container {
+		width: 90%;
+	}
+
+	.checkout .checkout-form .card {
+		max-width: 600px;
+		margin: 2rem auto;
+		padding-left: 2rem;
+		padding-right: 2rem;
+		padding-bottom: 1.5rem;
+	}
+
+	.payment .pay-option-labels.grid {
+		grid-template-columns: 1fr 1fr;
+	}
+
+	.payment .pay-option-labels .option.active {
+		background: white;
+		color: black;
+
+		box-shadow: -2px 2px 1px rgba(0, 0, 0, 0.3);
+	}
+
+	.payment #date-cvv.grid {
+		grid-template-columns: 4fr 1fr;
+		gap: 1rem;
+	}
+
+	.payment .online-banking-form-wrap .grid {
+		grid-template-columns: 1fr 1fr;
+	}
+
+	.alert {
+		display: none;
+		grid-column: 1 / span 2;
+
+		box-shadow: none;
+		border: red solid 1px;
+		color: red;
+	}
+
+	.payment .online-banking-form-wrap .pay-btn {
+		margin: 0;
+		grid-column: 1 / span 2;
+		align-self: center;
+	}
+
+	.receipt .receipt-head.grid {
+		grid-template-columns: 1fr 1fr;
+		gap: 1rem;
+	}
+
+	.receipt .receipt-products .grid {
+		grid-template-columns: 1fr 1fr 1fr 1fr;
+		gap: 1.2rem;
+		align-items: center;
+	}
+
+	.receipt .receipt-products .quantity,
+	.receipt .receipt-products .quantity > *,
+	.receipt .receipt-products .total {
+		display: flex;
+		justify-content: center;
+	}
+
+	.receipt .product-img-card {
+		grid-row: initial;
+	}
+}
+
+@media all and (min-width: 700px) {
+	.checkout .items-list {
+		margin: 3rem auto;
+	}
+
+	.checkout .items-list.grid {
+		gap: 3rem;
+	}
+
+	.checkout .item.grid {
+		grid-template-columns: 1fr 1fr 1fr;
+		gap: 1rem;
+	}
+
+	.checkout .checkout-form .card {
+		max-width: 500px;
+		padding: 1rem 1.8rem;
+	}
+}
+
+@media all and (min-width: 950px) {
+	.checkout .container {
+		min-height: inherit;
+	}
+
+	.checkout > .grid {
+		grid-template-columns: 1fr 1fr;
+		/* border: 3px solid red; */
+		gap: 3rem;
+	}
+
+	.checkout .items-list {
+		margin: 1rem auto;
+	}
+
+	.checkout .items-list.grid {
+		gap: 1rem;
+	}
+
+	.checkout .item.grid {
+		grid-template-columns: 1fr 1fr 1fr;
+		gap: 1rem;
+	}
+
+	.checkout .checkout-form {
+		align-self: center;
+		/* border: 4px solid red; */
+	}
+
+	.payment > .grid {
+		grid-template-columns: 6fr 3fr;
+		gap: 2rem;
+		grid-auto-rows: auto;
+	}
+
+	.payment .card-form-wrap {
+		/* border: 1px solid blue; */
+		margin-left: 0;
+		margin-right: 0;
+	}
+
+	.payment .cost-summary {
+		height: fit-content;
+		height: -moz-max-content;
+	}
+
+	.receipt .receipt-head.grid {
+		grid-template-columns: 1fr 1fr 1fr 1fr;
+		gap: 1rem;
+	}
+
+	.receipt .receipt-head-title.grid {
+		grid-template-columns: 1fr 1fr;
+	}
+
+	.receipt .receipt-head-title h4 {
+		text-align: center;
+		grid-row: 1 / span 3;
+		align-self: center;
+	}
+
+	.receipt .receipt-head-title h2 {
+		grid-row: 1 / span 2;
+	}
+}
+
+@media all and (min-width: 950px) {
+	.receipt .receipt-head-title h2 {
+		margin-bottom: 1.5rem;
+	}
+}

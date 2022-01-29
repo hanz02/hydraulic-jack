@@ -1,0 +1,81 @@
+.login_bg {
+	width: 100vw;
+	max-width: 100%;
+	height: 100%;
+	min-height: 100vh;
+
+	background-color: rgba(0, 0, 0, 0.7);
+	background-image: url(https://images.unsplash.com/photo-1611241893603-3c359704e0ee?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80);
+	background-position: center;
+	background-size: cover;
+	background-blend-mode: overlay;
+	background-attachment: fixed;
+
+	color: black;
+}
+
+.login-form {
+	background-color: white;
+	width: min(500px, 90%);
+	border-radius: 0.5rem;
+}
+
+.form-body {
+	max-width: 70%;
+	margin: auto;
+}
+
+.form-body .form-group label {
+	display: block;
+	margin: 1rem auto;
+	font-size: 0.9rem;
+}
+
+.form-body .form-group input {
+	width: 100%;
+	border: solid 1px black;
+	border-radius: 30px;
+	background-color: none;
+	padding: 5px 15px;
+}
+
+.form-body .form-group input:focus {
+	outline: none;
+}
+
+.form-body .issue-link.flex {
+	justify-content: space-between;
+}
+
+.form-body button {
+	outline: none;
+	padding: 0.5rem 1.5rem;
+	margin-top: 1rem;
+	background-color: black;
+	color: white;
+	border: 0;
+	border-radius: 30px;
+	cursor: pointer;
+
+	transition: all ease-in-out 350ms;
+}
+
+.form-body button:hover,
+.form-body button:focus {
+	background-color: white;
+	color: black;
+	box-shadow: 0 0 0 1px rgba(0, 0, 0, 1);
+}
+
+.signup-form .alert.active,
+.login-form .alert.active {
+	border: red solid 1px;
+	padding: 0.5rem 0;
+	color: red;
+	letter-spacing: 2px;
+}
+
+.error-db {
+	padding: 1rem 0;
+	color: red;
+}
