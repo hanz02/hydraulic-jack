@@ -30,7 +30,7 @@
                                                     if($data->profile_img_state == 0)
                                                     {
                                                 ?>
-                                                        <img class="default_profile" src="<?php echo $data->profile_img?>" alt="<?php echo $data->ID_prefix . $data->client_id . "profile_img"?> ">
+                                                        <img class="default_profile" src="<?php echo base_url().$data->profile_img?>" alt="<?php echo $data->ID_prefix . $data->client_id . "profile_img"?> ">
                                                 <?php
                                                     }
                                                     else

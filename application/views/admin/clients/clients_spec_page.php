@@ -21,22 +21,24 @@
                                         <div class="profile_border p-y2">
                                             <div class="grid">
                                                 <div class="flex h-100">
-                                                    <div class="image_contain">
-                                                        <?php
-                                                            if($spec->profile_img_state == 0)
-                                                            {
-                                                        ?>
-                                                                <img class="default_profile" src="<?php echo $spec->profile_img?>" alt="<?php echo $spec->ID_prefix . $spec->client_id . "profile_img"?> ">
-                                                        <?php
-                                                            }
-                                                            else
-                                                            {
-                                                        ?>
-                                                                <img src="<?php echo base_url("assets/img/profile_img/" . $spec->profile_img)?>" alt="<?php echo $spec->ID_prefix . $spec->client_id . "profile_img"?> ">
-                                                        <?php
-                                                            }
-                                                        ?>
-                                                    </div>
+                                                    <?php
+                                                        if($spec->profile_img_state == 0)
+                                                        {
+                                                    ?>  
+                                                        <div class="image_contain default_profile">
+                                                            <img src="<?php echo base_url().$spec->profile_img?>" alt="<?php echo $spec->ID_prefix . $spec->client_id . "profile_img"?> ">
+                                                        </div>
+                                                    <?php
+                                                        }
+                                                        else
+                                                        {
+                                                    ?>
+                                                        <div class="image_contain">
+                                                            <img src="<?php echo base_url("assets/img/profile_img/" . $spec->profile_img)?>" alt="<?php echo $spec->ID_prefix . $spec->client_id . "profile_img"?> ">
+                                                        </div>
+                                                    <?php
+                                                        }
+                                                    ?>
                                                 </div>
                                                 <div class="client_info">
                                                     <div class="client_id m-y2">
