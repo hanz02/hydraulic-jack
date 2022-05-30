@@ -30,14 +30,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     }
 
   public function view_product_details($product_data) {
-    
-
-    $this->db->select('*');
-    $this->db->from('art_product');
-    $this->db->join('art_product_img', 'art_product_img.product_id = art_product.product_id');
-    $this->db->join('artist', 'art_product.artist_id = artist.artist_id');
+    $this->db->select('art.*, art_img.product_img, artist.user_name');
+    $this->db->from('art_product art');
+    $this->db->join('art_product_img art_img', 'art_img.product_id = art.product_id');
+    $this->db->join('artist', 'art.artist_id = artist.artist_id');
     $this->db->where(array(
-      'art_product.product_id' => $product_data['product_id']
+      'art.product_id' => $product_data['product_id'],
     ));
 
     $query = $this->db->get();
@@ -210,7 +208,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
     } else {
       return false;
-
     }
   }
 

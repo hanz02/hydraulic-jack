@@ -10,6 +10,11 @@
   <main class="products">
     <div class="container">
       <h2 class="f-sm-1 f-middle f-w-heavy products-banner">ART WORKS</h2>
+      <?php
+        if(!empty($all_products))
+        {
+
+      ?>
       <div class="filter_selection">
         <div class="flex">
             <div class="filter_product f-middle flex"> 
@@ -57,7 +62,6 @@
     </div>
       <div class="products-area f-middle grid">
         <?php
-          if(count($all_products) > 0) {
 
             foreach ($all_products as $product) {
         ?>
@@ -102,6 +106,14 @@
         <?php
             }
           }
+          else
+          {
+            ?>
+            <div class="flex empty-message m-4">
+                <h4 class="f-w-heavy m-y4 p-2 f-sm-1 f-middle">There are currently no products on the shelves</h4>
+            </div>
+          <?php
+          }
         ?>
       </div>
 
@@ -109,5 +121,3 @@
   </main>
 
 <?php $this->load->view('include/footer'); ?>
-</body>
-</html>

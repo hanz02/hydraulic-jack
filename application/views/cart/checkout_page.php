@@ -107,5 +107,3 @@
     </main>
 
     <?php $this->load->view('include/footer'); ?>
-</body>
-</html>

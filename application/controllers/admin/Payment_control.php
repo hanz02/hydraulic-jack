@@ -52,9 +52,12 @@ class Payment_control extends CI_Controller
       $data['payment_data'] = $db_payment;
       $data['payment_art_data'] = $db_pay_product;
       $data['user_data'] = $db_user;
+      $data['access_user_type'] = "admin" ;
 
-      $this->load->view('admin/payments/payment_spec_page', $data);
-
+      $this->load->view('include/header');
+      $this->load->view('admin/include/header'); 
+      $this->load->view('payment/payment_history_page', $data);
+      $this->load->view('include/footer'); 
     } else 
     {
       echo 'SORRY, SOME INTERNAL SERVER PROBLEM OCCURED. PLEASE HANG ON, WE WILL FIX IT SOON';

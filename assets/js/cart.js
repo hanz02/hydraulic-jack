@@ -3,7 +3,6 @@ $(document).ready(() => {
 
 	var calcTotalItem = function () {
 		quantity_value = 0;
-
 		$(".quantity .quantity-field").each(function () {
 			if ($(this).val() != "OUT OF STOCK" && $(this).is("input")) {
 				quantity_value += parseInt($(this).val());
@@ -47,8 +46,8 @@ $(document).ready(() => {
 
 	//* REMOVE CART ITEM
 	$(".remove-product").click(function (e) {
+		e.preventDefault();
 		var currentElement = $(this);
-
 		$.ajax({
 			type: "POST",
 			url: "cart_control/remove_cart_product",
@@ -59,15 +58,22 @@ $(document).ready(() => {
 			cache: false,
 			success: function (data) {
 				if (data == true) {
-					currentElement.parent().closest(".cart-product-form").fadeOut();
+					currentElement
+						.parent()
+						.closest(".cart-product-form")
+						.fadeOut(function () {
+							this.remove();
 
-					calcTotalItem();
-					calcSubTotal();
-					calcGrandTotal();
+							calcTotalItem();
+							calcSubTotal();
+							calcGrandTotal();
 
-					if (quantity_value <= 0) {
-						window.location.replace(base_url + "cart");
-					}
+							console.log(quantity_value);
+
+							if (quantity_value <= 0) {
+								window.location.replace(base_url + "cart");
+							}
+						});
 				} else {
 					return false;
 				}

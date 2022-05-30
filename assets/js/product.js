@@ -183,8 +183,8 @@ $(document).ready(() => {
 	if (typeof existing_rating == "undefined") {
 		return false;
 	} else if (existing_rating !== "none") {
-		changeStarColor(existing_rating);
 		selected_rating = existing_rating;
+		changeStarColor(existing_rating);
 		$(".fa").css({
 			color: "#E69A8DFF",
 		});

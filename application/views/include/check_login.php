@@ -1,5 +1,4 @@
 <script>
-  var base_url = '<?php echo base_url(); ?>';
   <?php
   // IF USER LOGGED IN
     if($this->session->has_userdata('login') == true || $this->session->userdata('login') == "1") {

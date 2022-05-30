@@ -79,6 +79,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
      $this->db->where(array(
        'client_id' => $this->session->userdata('login_client_id'),
      ));
+     $this->db->order_by('cart_id', 'DESC');
      $query = $this->db->get();
 
      if($query -> num_rows() > 0) { // IF PRODUCTS IN CART, WE RETURN IT!

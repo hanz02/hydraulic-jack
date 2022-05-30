@@ -4,9 +4,6 @@
 <link rel="stylesheet" href="<?php echo base_url() ?>assets/css/admin_style/uploadProduct_style.css">
 <script src="<?php echo base_url() ?>assets/js/admin/products.js"></script>
 <script src="<?php echo base_url() ?>assets/js/admin/uploadProduct.js"></script>
-<script>
-    var base_url = '<?php echo base_url(); ?>';
-</script>
 
 </head>
 <body>
@@ -16,16 +13,15 @@
 
         <div class="container">
 
+            <h3 class="f-w-heavy f-middle">MANAGE PRODUCTS</h3>
+                <div class="add_product">
+                    <button type="button">ADD PRODUCTS</button>
+                </div>
+
             <?php 
                     if($all_products != "empty") {
 
                         if(count($all_products) > 0) {
-                            ?>
-                                <h3 class="f-w-heavy f-middle">MANAGE PRODUCTS</h3>
-                                <div class="add_product">
-                                    <button type="button">ADD PRODUCTS</button>
-                                </div>
-                            <?php
                             foreach ($all_products as $product) {
 
                                 echo form_open('admin/products_control/view_product_spec', array(
@@ -203,7 +199,7 @@
                                                 <li>
                                                     <p>
                                                         <span class="option_text f-w-heavy">Show</span>
-                                                        <input class="status_selected" type="hidden" name="status_selected" value="<?php echo $product->product_status?>">
+                                                        <input class="status_selected" type="hidden" name="status_selected" value="show">
                                                     </p>
                                                 </li>
                                             </ul>

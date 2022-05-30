@@ -29,19 +29,14 @@ class Products_control extends CI_Controller {
 
  }
 
-public function index()
-{
-
-	$display_products_result = $this->products_model->display_products();
-
-	if($display_products_result != false) {
-		$data['all_products'] = $display_products_result;
-		$this->load->view('products/products_page', $data);
-
-	} else {
-		echo "Something is wrong displaying the products";
-	}
-}
+ public function index()
+ {
+ 
+	 $display_products_result = $this->products_model->display_products();
+ 
+	 $data['all_products'] = $display_products_result;
+	 $this->load->view('products/products_page', $data);
+ }
 
   public function display_product_details()
   {
@@ -56,7 +51,7 @@ public function index()
 
 		if($results != false) {
 			$data['products_info'] = $results;
-		$data['products_rating'] = $result_rating;
+			$data['products_rating'] = $result_rating;
 
 			$this->load->view('products/product_details_page', $data);
 

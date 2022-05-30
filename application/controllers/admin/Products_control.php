@@ -83,13 +83,50 @@ public function index()
 
 	public function uploadProduct(){
 		$config['upload_path'] = 'assets/img/ready_artworks';
-		$config['allowed_types'] = 'jpg|jpeg';
+		$config['allowed_types'] = 'jpg|jpeg|png';
 		$config['encrypt_name'] = TRUE;
 	
 		$this->load->library('upload', $config);
 	
 		//* provide name attr of the 'file' type input
 		if($this->upload->do_upload('productImgUpload')) {
+			$data = $this->upload->data();
+			$size_limit = 2000;
+			$quality_diff = floor(($size_limit * 100) / $data['file_size']);
+
+			//* any accepted image files larger than 2mb / 2000kb, we compress it 
+			if($data["file_size"] > $size_limit)
+			{
+				$config['image_library'] = 'gd2';  
+				$config['source_image'] = "assets/img/ready_artworks/".$data["file_name"];  
+				$config['maintain_ratio'] = TRUE;  
+				$config['quality'] =  100 - $quality_diff . "%";
+				$this->load->library('image_lib');  
+				// print_r($data);
+				// echo 100 - $quality_diff . "%";
+
+				//* if image is a landscape (resize the width)
+				if($data['image_width'] > $data['image_height']) 
+				{    
+					// echo "landscape <br>";
+					// echo floor($data["image_width"] * ($quality_diff) / 100) . " IOWHJDKJBFEKB <br>" ;
+					$config['width'] = floor($data["image_width"] * $quality_diff / 100);  
+				}
+				else
+				{ //* if image is a potrait (resize the height)
+					// echo "potrait <br>";
+					// echo floor($data["image_height"] * ($quality_diff) / 100) . "wdhwbdjbbd <br>";
+					$config['height'] = floor($data["image_height"] * $quality_diff / 100);  
+				}
+				$config['new_image'] = "assets/img/ready_artworks/".$data["file_name"];  
+				$this->image_lib->initialize($config);
+				if (!$this->image_lib->resize()) 
+				{ //* if image resize failed
+					// echo "this part doesnt fucking work <br>";
+					echo $this->image_lib->display_errors();
+				}
+			}
+
 			$uploadData = array(
 				'upload_data' => $this->upload->data(),
 				'input_data' => $this->input->post()
@@ -106,7 +143,7 @@ public function index()
 			}
 
 		} else {
-			echo false;
+			echo $this->upload->display_errors();  
 		}
 	}
 }

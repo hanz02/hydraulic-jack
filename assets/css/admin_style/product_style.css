@@ -533,7 +533,8 @@
 		justify-content: space-around;
 	}
 
-	.product_name, #admin .product_status {
+	.product_name,
+	#admin .product_status {
 		grid-column: initial;
 	}
 

@@ -44,6 +44,7 @@
 
           <div class="product-text">
             <h1 class="f-w-heavy"><?php echo $info->product_name?></h1>
+            <h2 class="f-sm">Artist: <span class="f-w-heavy"><?php echo $info->user_name?></span></h2>
             <p class="product-descript m-y3">
               <?php echo $info->product_descript?>
             </p>
@@ -91,5 +92,3 @@
     </div>
 
     <?php $this->load->view('include/footer'); ?>
-  </body>
-</html>

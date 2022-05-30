@@ -69,12 +69,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
       if($this->db->trans_status() === true) //* IF INSERT PAYMENT RECORD SUCCESSFUL
       { 
         //* GET PRODUCTS FROM CART PURCHASED
-        $this->db->select('cart.product_id,quantity,art_product.price');
+        $this->db->select('cart.cart_id,cart.product_id,quantity,art_product.price');
         $this->db->from('cart');
         $this->db->join('art_product', 'cart.product_id = art_product.product_id');
         $this->db->where(array(
           'client_id' => $this->session->userdata('login_client_id')
         ));
+        $this->db->order_by('cart_id', 'ASC');
 
         $query = $this->db->get();
 
@@ -161,14 +162,28 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
    }
 
-   public function get_payment_record($payment_id) {
-    $this->db->select('*');
+   public function get_payment_record($payment_id = null, $user_id = null, $count = null, $offset = 0) {
+    $this->db->select('payment.*, client.username');
     $this->db->from('payment');
-    $this ->db-> where('payment_id', $payment_id);
+    $this->db->join('client', 'payment.client_id = client.client_id');
+ 
+    //* fetch specific payment record or fetch all
+    if(!is_null($payment_id)) 
+    {
+      $this ->db-> where('payment_id', $payment_id);
+    }
+    if(!is_null($user_id)) 
+    {
+      $this ->db-> where('payment.client_id', $user_id);
+    }
+    if(!is_null($count)) 
+    {
+      $this->db->limit($count, $offset);
+    }
 
     $query = $this->db->get();
     
-    if($query -> num_rows() == 1) { //IF ONLY ONE EMAIL EXISTS
+    if($query -> num_rows() >= 1) { //IF ONLY ONE EXISTS
       return $query->result();
       
     } else {
@@ -176,12 +191,18 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     }
   }
 
-   public function get_payment_art($payment_id) {
+   public function get_payment_art($payment_id, $count = null, $offset = 0, $sort = "DESC") {
     $this->db->select('*');
     $this->db->from('art_product');
     $this->db->join('payment_art', 'payment_art.product_id = art_product.product_id');
     $this->db->join('art_product_img', 'art_product_img.product_id = art_product.product_id');
     $this ->db->where('payment_art.payment_id', $payment_id);
+    $this ->db->order_by('payment_art.id', $sort);
+
+    if(!is_null($count)) 
+    {
+      $this->db->limit($count, $offset);
+    }
 
     $query = $this->db->get();
 

@@ -247,8 +247,9 @@ $(document).ready(() => {
 				processData: false,
 				contentType: false,
 				cache: false,
-				async: false,
+				async: true,
 				success: function (data) {
+					// alert(data);
 					if (data == true) {
 						upload_alert.fadeOut(100);
 						upload_alert.children("div").css({
@@ -259,7 +260,7 @@ $(document).ready(() => {
 						upload_alert.fadeIn(50);
 						location.reload();
 					} else {
-						alert("UPLOAD UNSUCCESSFUL, PLEASE TRY AGAIN");
+						// alert("UPLOAD UNSUCCESSFUL, PLEASE TRY AGAIN");
 						upload_alert.fadeOut(100);
 						upload_alert
 							.find(".text")
@@ -269,6 +270,21 @@ $(document).ready(() => {
 				},
 			});
 		}
+	});
+
+	$(document).on({
+		ajaxStart: function () {
+			upload_alert.fadeOut(100);
+			upload_alert.children("div").css({
+				"border-color": "#FFE162",
+				color: "#FFE162",
+			});
+			upload_alert.find(".text").html("Uploading Product..");
+			upload_alert.fadeIn(50);
+		},
+		ajaxStop: function () {
+			upload_alert.fadeOut(100);
+		},
 	});
 
 	$("form.upload_product_form .fa-times-circle").click(function () {});
