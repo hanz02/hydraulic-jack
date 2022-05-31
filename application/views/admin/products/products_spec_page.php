@@ -2,9 +2,6 @@
 <?php $this->load->view('admin/include/header'); ?>
 <link rel="stylesheet" href="<?php echo base_url() ?>assets/css/admin_style/product_style.css">
 <script src="<?php echo base_url() ?>assets/js/admin/products.js"></script>
-<script>
-    var base_url = '<?php echo base_url(); ?>';
-</script>
 </head>
 <body>
 

@@ -20,8 +20,12 @@ class Clients_model extends CI_Model {
         if($query -> num_rows() > 0) { //IF ONLY ONE EMAIL EXISTS
             return $query->result();
             
-        } else {
-            return false;
+        } elseif ($query -> num_rows() == 0) {
+            return "empty_clients";
+        } else 
+        {
+          return false;
+
         }
     }
 

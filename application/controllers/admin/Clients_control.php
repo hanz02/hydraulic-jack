@@ -26,7 +26,7 @@ class Clients_control extends CI_Controller {
         }
         else
         {
-            echo 'no users fetched';
+          echo "CODE 500, something is wrong with in the server. Hang on tight! Developer will have to fix this!";
         }
 
     } else {

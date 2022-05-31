@@ -10,9 +10,7 @@
 
     <?php $this->load->view('admin/include/admin_nav'); ?>
     <main class="admin_products" id="admin">
-
         <div class="container">
-
             <h3 class="f-w-heavy f-middle">MANAGE PRODUCTS</h3>
                 <div class="add_product">
                     <button type="button">ADD PRODUCTS</button>
@@ -102,10 +100,8 @@
                         }
                     } else {
                         ?>
-                            <div class="flex">
-
-                                <h4 class="f-w-heavy">YOU DO NOT HAVE ANY PRODUCTS ON THE SHELVES</h4>
-                            
+                            <div class="flex f-middle empty-content">
+                                <h4 class="f-w-heavy m-y4 p-y4 p-x2">YOU DO NOT HAVE ANY PRODUCTS ON THE SHELVE</h4>
                             </div>
                         <?php
                     }

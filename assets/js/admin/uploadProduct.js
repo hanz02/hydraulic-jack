@@ -257,8 +257,9 @@ $(document).ready(() => {
 							color: "#519d90",
 						});
 						upload_alert.find(".text").html("Product uploaded successfully");
-						upload_alert.fadeIn(50);
-						location.reload();
+						upload_alert.fadeIn(50, function () {
+							location.reload();
+						});
 					} else {
 						// alert("UPLOAD UNSUCCESSFUL, PLEASE TRY AGAIN");
 						upload_alert.fadeOut(100);

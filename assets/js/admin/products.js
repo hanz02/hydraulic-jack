@@ -101,7 +101,11 @@ $(document).ready(() => {
 						to_remove_btn.parent().closest(".individual_product_form").remove();
 						$(".modal").fadeOut(100);
 						$(".update_alert .text").html("PRODUCT REMOVED");
-						$(".update_alert").fadeIn(100);
+						$(".update_alert").fadeIn(100, function () {
+							if ($(".individual_product_form").length <= 0) {
+								location.reload();
+							}
+						});
 					} else {
 						$(".update_alert .text").html("ERROR UPDATING PRODUCT");
 						$(".update_alert").addClass("error");
@@ -198,6 +202,4 @@ $(document).ready(() => {
 	$(".close-btn").click(function () {
 		$(".modal").fadeOut(100);
 	});
-
-	
 });

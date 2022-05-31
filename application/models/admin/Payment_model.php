@@ -41,7 +41,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
        if($query -> num_rows() > 0) { //IF ONLY ONE EMAIL EXISTS
          return $query->result();
-         
+       } else if($query -> num_rows() == 0) {
+         return "empty_payment";
        } else {
          return false;
        }

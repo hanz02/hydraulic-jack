@@ -44,7 +44,7 @@ $(document).ready(() => {
 	calcSubTotal();
 	calcGrandTotal();
 
-	//* REMOVE CART ITEM
+	//! REMOVE CART ITEM
 	$(".remove-product").click(function (e) {
 		e.preventDefault();
 		var currentElement = $(this);

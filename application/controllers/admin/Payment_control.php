@@ -27,7 +27,7 @@ class Payment_control extends CI_Controller
         
     } else
     {
-
+      echo "CODE 500, something is wrong with in the server. Hang on tight! Developer will have to fix this!";
     }
 
     } else { //~ IF admin NOT LOGGED IN
