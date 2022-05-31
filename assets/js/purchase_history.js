@@ -77,7 +77,11 @@ $(document).ready(() => {
 					<div class="purchase-description">
 						<a href="#" class="m-top-2 m-y-sm purch-prod-name f-w-heavy">${
 							payment.art_data[0].product_name
-						} + ${payment.art_data.length} Others</a>
+						} ${
+				payment.art_data.length - 1 > 0
+					? "+" + payment.art_data.length + "Others"
+					: ""
+			}</a>
 						<p class="m-0">Date:<span class="f-w-heavy"> ${payment.payment_date}</span></p>
 						<p class="m-0">Payer:<span class="f-w-heavy"> ${payment.username}</span></p>
 						<button type="submit" class="btn-view-purchase m-y2">VIEW DETAILS</button>

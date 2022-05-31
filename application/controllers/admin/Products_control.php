@@ -82,6 +82,8 @@ public function index()
 	}
 
 	public function uploadProduct(){
+	if($this->session->has_userdata('login_admin') == true || $this->session->userdata('login_admin') == "1")
+	{
 		$config['upload_path'] = 'assets/img/ready_artworks';
 		$config['allowed_types'] = 'jpg|jpeg|png';
 		$config['encrypt_name'] = TRUE;
@@ -145,5 +147,10 @@ public function index()
 		} else {
 			echo $this->upload->display_errors();  
 		}
+
+	} else
+	{
+		redirect('hj-admin/login');
+	}
 	}
 }
