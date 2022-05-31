@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.9.5
+-- version 5.0.2
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost:3306
--- Generation Time: Jan 28, 2022 at 04:01 PM
--- Server version: 10.5.12-MariaDB
--- PHP Version: 7.3.32
+-- Host: 127.0.0.1
+-- Generation Time: May 31, 2022 at 04:21 PM
+-- Server version: 10.4.14-MariaDB
+-- PHP Version: 7.4.9
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -19,10 +18,8 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `id18354860_hjdb`
+-- Database: `hydraulic_jack_db`
 --
-CREATE DATABASE IF NOT EXISTS `id18354860_hjdb` DEFAULT CHARACTER SET utf8 COLLATE utf8_unicode_ci;
-USE `id18354860_hjdb`;
 
 -- --------------------------------------------------------
 
@@ -52,7 +49,7 @@ CREATE TABLE `tbl_artist` (
 --
 
 INSERT INTO `tbl_artist` (`artist_id`, `first_name`, `last_name`, `user_name`, `dob`, `gender`, `email`, `password`, `profile_img`, `cover_img`, `ID_prefix`, `commission_status`, `profile_img_state`, `cover_img_state`) VALUES
-(1, 'Jack ', 'Kang', 'Hydraulic Jack', '0000-00-00', 'male', 'user2140@hotmail.com', '$2y$10$qeGYUoflBUhhOUB8gcVDKeX3zMmDaXzBqp1PU5UM5W.t3VDrKaLG.', '/assets/img/default_account.png', '/assets/img/default_bg.png', 'RTST', 1, 0, 0);
+(1, 'Jack ', 'Kang', 'Hydraulic Jack', '0000-00-00', 'male', 'admin@hydraulicjack.com', '$2y$10$qeGYUoflBUhhOUB8gcVDKeX3zMmDaXzBqp1PU5UM5W.t3VDrKaLG.', '/assets/img/default_account.png', '/assets/img/default_bg.png', 'RTST', 1, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -97,19 +94,6 @@ CREATE TABLE `tbl_art_product` (
   `total_revenue` decimal(7,2) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
---
--- Dumping data for table `tbl_art_product`
---
-
-INSERT INTO `tbl_art_product` (`product_id`, `product_name`, `product_descript`, `stock_amount`, `product_status`, `ID_prefix`, `amount_sold`, `price`, `artist_id`, `date_added`, `total_revenue`) VALUES
-(1, '2 Soldiers Digital Remastered Illustration ver 2', '2 Soldiers Digital Remaster DESCRIPTION', 90, 'show', 'ILLUS', 13, 39.99, 1, '2021-04-14', 519.87),
-(2, ' Reality Disco Style Jack Face', 'Reality Disco Style Jack Face DESCRIPTION', 90, 'show', 'ILLUS', 20, 50.99, 1, '2021-04-12', 1019.80),
-(3, '[VA-11 Hall-A] Julianne Stingray Room Illustration', '[VA-11 Hall-A] Julianne Stingray Room Illustration DESCRIPTION', 93, 'show', 'ILLUS', 8, 520.00, 1, '2021-04-13', 3692.00),
-(4, '[The Crew 2] Fanart Illustration Car', '[The Crew 2] Fanart Illustration DESCRIPTION', 100, 'show', 'ILLUS', 27, 60.00, 1, '2021-04-15', 1593.00),
-(5, 'The Corridor Illustration', 'The Corridor Illustration DESCRIPTION', 96, 'show', 'ILLUS', 7, 30.00, 1, '2021-04-14', 120.00),
-(34, 'No smoking Illust', 'No Smoking', 17, 'show', 'ILLUS', 3, 30.00, 1, '2022-01-27', 90.00),
-(35, 'Rubik\'s Cube Illust', 'Rubik Cube Illust Description\r\n\r\n\"person’s face (the Rubik\'s cube) and society (the hands) changes the face cuz it’s not good enough for them\"', 20, 'show', 'ILLUS', 0, 50.00, 1, '2022-01-28', 0.00);
-
 -- --------------------------------------------------------
 
 --
@@ -121,20 +105,6 @@ CREATE TABLE `tbl_art_product_img` (
   `product_id` int(11) NOT NULL,
   `id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `tbl_art_product_img`
---
-
-INSERT INTO `tbl_art_product_img` (`product_img`, `product_id`, `id`) VALUES
-('assets/img/ready_artworks/2 soldiers digital remaster.jpg', 1, 1),
-('assets/img/ready_artworks/jill_s room.jpg', 3, 3),
-('assets/img/ready_artworks/The Crew 2 fanart.jpg', 4, 4),
-('assets/img/ready_artworks/Corridor.jpg', 5, 5),
-('assets/img/ready_artworks/73685ce117db7f5bc906fbcf3ce06c95.jpg', 31, 34),
-('assets/img/ready_artworks/5c77ac95c7593c867cb3e59bae2bf8d6.jpg', 32, 35),
-('assets/img/ready_artworks/7561f371058fed4721204b6eec6fbb2e.jpg', 34, 37),
-('assets/img/ready_artworks/da0b1843269da78462e425627877dcdb.jpg', 35, 38);
 
 -- --------------------------------------------------------
 
@@ -149,14 +119,6 @@ CREATE TABLE `tbl_art_product_rating` (
   `client_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
---
--- Dumping data for table `tbl_art_product_rating`
---
-
-INSERT INTO `tbl_art_product_rating` (`id`, `rating`, `product_id`, `client_id`) VALUES
-(65, 5, 3, 13),
-(66, 4, 34, 13);
-
 -- --------------------------------------------------------
 
 --
@@ -170,13 +132,6 @@ CREATE TABLE `tbl_cart` (
   `client_id` int(11) NOT NULL,
   `product_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `tbl_cart`
---
-
-INSERT INTO `tbl_cart` (`cart_id`, `quantity`, `ID_prefix`, `client_id`, `product_id`) VALUES
-(224, 1, 'CRT', 14, 4);
 
 -- --------------------------------------------------------
 
@@ -199,16 +154,6 @@ CREATE TABLE `tbl_client` (
   `bg_img` varchar(300) DEFAULT NULL,
   `bg_img_state` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `tbl_client`
---
-
-INSERT INTO `tbl_client` (`client_id`, `dob`, `first_name`, `last_name`, `password`, `gender`, `profile_img`, `ID_prefix`, `email`, `username`, `profile_img_state`, `bg_img`, `bg_img_state`) VALUES
-(13, '2002-09-13', 'Han Zhe', 'Khaw', '$2y$10$8HBNJ9daObpUnmtc4ThE4.S.scfvOkzAjD/UQeaKMFK7SiP73adNe', 'male', '7f6ad180232d3e0c86a32b7c0a9ce12e.jpg', 'CNT', 'hanz@gmail.com', 'HanZ_02', 1, '9f2d9669bc74c796d0479109dfadc706.jpg', 1),
-(14, '2022-01-18', 'Nimama', 'De pussy', '$2y$10$Fy68JEPYEqXgIR3bA.lbdu7rTByK1EURikOWflVG6v3kLWEqv8QaW', 'female', '/assets/img/default_account.png', 'CNT', 'henhaochi@yahoo.com.my', 'Nig', 0, '/assets/img/default_bg.jpg', 0),
-(15, '2000-08-29', 'Claye', 'Lupescar', '$2y$10$qDjzdhVgvOA9vlRqZu4K5./kgo3dRKQs.DNQzzdX6/r.CZuuEc3kO', 'male', '/assets/img/default_account.png', 'CNT', 'clayelupescar@gmail.com', 'Lupescar', 0, '/assets/img/default_bg.jpg', 0),
-(16, '2022-01-03', 'Something', 'Wong', '$2y$10$bwuVnfxpvrs/VT2qIk8BdO.ujVjzmCLqzC6zcJWElJ7wj8qAVGxoq', 'male', '/assets/img/default_account.png', 'CNT', 'sw@gmail.com', 'sw_99', 0, '/assets/img/default_bg.jpg', 0);
 
 -- --------------------------------------------------------
 
@@ -286,15 +231,6 @@ CREATE TABLE `tbl_payment` (
   `client_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
---
--- Dumping data for table `tbl_payment`
---
-
-INSERT INTO `tbl_payment` (`payment_id`, `payment_date`, `payment_amount`, `transaction_type`, `ID_prefix`, `client_id`) VALUES
-(155, '2022-01-27', 520.00, 'online_banking', 'PYMT', 13),
-(156, '2022-01-27', 520.00, 'online_banking', 'PYMT', 13),
-(157, '2022-01-27', 90.00, 'online_banking', 'PYMT', 13);
-
 -- --------------------------------------------------------
 
 --
@@ -305,17 +241,18 @@ CREATE TABLE `tbl_payment_art` (
   `payment_id` int(11) NOT NULL,
   `product_id` int(11) NOT NULL,
   `quantity` int(11) NOT NULL,
-  `total` decimal(6,2) NOT NULL
+  `total` decimal(6,2) NOT NULL,
+  `id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `tbl_payment_art`
 --
 
-INSERT INTO `tbl_payment_art` (`payment_id`, `product_id`, `quantity`, `total`) VALUES
-(155, 3, 1, 520.00),
-(156, 3, 1, 520.00),
-(157, 34, 3, 90.00);
+INSERT INTO `tbl_payment_art` (`payment_id`, `product_id`, `quantity`, `total`, `id`) VALUES
+(217, 53, 1, '12.00', 27),
+(218, 48, 1, '30.00', 28),
+(219, 49, 1, '20.00', 29);
 
 -- --------------------------------------------------------
 
@@ -435,7 +372,8 @@ ALTER TABLE `tbl_payment`
 -- Indexes for table `tbl_payment_art`
 --
 ALTER TABLE `tbl_payment_art`
-  ADD PRIMARY KEY (`payment_id`,`product_id`),
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `payment_id` (`payment_id`),
   ADD KEY `product_id` (`product_id`);
 
 --
@@ -459,25 +397,25 @@ ALTER TABLE `tbl_artist`
 -- AUTO_INCREMENT for table `tbl_art_product`
 --
 ALTER TABLE `tbl_art_product`
-  MODIFY `product_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
+  MODIFY `product_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=65;
 
 --
 -- AUTO_INCREMENT for table `tbl_art_product_img`
 --
 ALTER TABLE `tbl_art_product_img`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=68;
 
 --
 -- AUTO_INCREMENT for table `tbl_art_product_rating`
 --
 ALTER TABLE `tbl_art_product_rating`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=67;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=75;
 
 --
 -- AUTO_INCREMENT for table `tbl_cart`
 --
 ALTER TABLE `tbl_cart`
-  MODIFY `cart_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=225;
+  MODIFY `cart_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=335;
 
 --
 -- AUTO_INCREMENT for table `tbl_client`
@@ -495,7 +433,13 @@ ALTER TABLE `tbl_commission`
 -- AUTO_INCREMENT for table `tbl_payment`
 --
 ALTER TABLE `tbl_payment`
-  MODIFY `payment_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=158;
+  MODIFY `payment_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=220;
+
+--
+-- AUTO_INCREMENT for table `tbl_payment_art`
+--
+ALTER TABLE `tbl_payment_art`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
 
 --
 -- Constraints for dumped tables
@@ -527,11 +471,69 @@ ALTER TABLE `tbl_art_product_img`
   ADD CONSTRAINT `tbl_art_product_img_ibfk_1` FOREIGN KEY (`product_id`) REFERENCES `tbl_art_product` (`product_id`) ON DELETE NO ACTION;
 
 --
+-- Constraints for table `tbl_art_product_rating`
+--
+ALTER TABLE `tbl_art_product_rating`
+  ADD CONSTRAINT `tbl_art_product_rating_ibfk_1` FOREIGN KEY (`product_id`) REFERENCES `tbl_art_product` (`product_id`),
+  ADD CONSTRAINT `tbl_art_product_rating_ibfk_2` FOREIGN KEY (`client_id`) REFERENCES `tbl_client` (`client_id`);
+
+--
 -- Constraints for table `tbl_cart`
 --
 ALTER TABLE `tbl_cart`
   ADD CONSTRAINT `tbl_cart_ibfk_1` FOREIGN KEY (`client_id`) REFERENCES `tbl_client` (`client_id`),
   ADD CONSTRAINT `tbl_cart_ibfk_2` FOREIGN KEY (`product_id`) REFERENCES `tbl_art_product` (`product_id`);
+
+--
+-- Constraints for table `tbl_client_phone_no`
+--
+ALTER TABLE `tbl_client_phone_no`
+  ADD CONSTRAINT `tbl_client_phone_no_ibfk_1` FOREIGN KEY (`client_id`) REFERENCES `tbl_client` (`client_id`);
+
+--
+-- Constraints for table `tbl_commission`
+--
+ALTER TABLE `tbl_commission`
+  ADD CONSTRAINT `tbl_commission_ibfk_1` FOREIGN KEY (`client_id`) REFERENCES `tbl_client` (`client_id`),
+  ADD CONSTRAINT `tbl_commission_ibfk_2` FOREIGN KEY (`artist_id`) REFERENCES `tbl_artist` (`artist_id`);
+
+--
+-- Constraints for table `tbl_commission_msg`
+--
+ALTER TABLE `tbl_commission_msg`
+  ADD CONSTRAINT `tbl_commission_msg_ibfk_1` FOREIGN KEY (`commission_id`) REFERENCES `tbl_commission` (`commission_id`);
+
+--
+-- Constraints for table `tbl_commission_ref_link`
+--
+ALTER TABLE `tbl_commission_ref_link`
+  ADD CONSTRAINT `tbl_commission_ref_link_ibfk_1` FOREIGN KEY (`commission_id`) REFERENCES `tbl_commission` (`commission_id`);
+
+--
+-- Constraints for table `tbl_commission_ref_uploads`
+--
+ALTER TABLE `tbl_commission_ref_uploads`
+  ADD CONSTRAINT `tbl_commission_ref_uploads_ibfk_1` FOREIGN KEY (`commission_id`) REFERENCES `tbl_commission` (`commission_id`);
+
+--
+-- Constraints for table `tbl_payment`
+--
+ALTER TABLE `tbl_payment`
+  ADD CONSTRAINT `tbl_payment_ibfk_1` FOREIGN KEY (`client_id`) REFERENCES `tbl_client` (`client_id`);
+
+--
+-- Constraints for table `tbl_payment_art`
+--
+ALTER TABLE `tbl_payment_art`
+  ADD CONSTRAINT `tbl_payment_art_ibfk_1` FOREIGN KEY (`payment_id`) REFERENCES `tbl_payment` (`payment_id`),
+  ADD CONSTRAINT `tbl_payment_art_ibfk_2` FOREIGN KEY (`product_id`) REFERENCES `tbl_art_product` (`product_id`);
+
+--
+-- Constraints for table `tbl_payment_commisions`
+--
+ALTER TABLE `tbl_payment_commisions`
+  ADD CONSTRAINT `tbl_payment_commisions_ibfk_1` FOREIGN KEY (`payment_id`) REFERENCES `tbl_payment` (`payment_id`),
+  ADD CONSTRAINT `tbl_payment_commisions_ibfk_2` FOREIGN KEY (`commission_id`) REFERENCES `tbl_commission` (`commission_id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
