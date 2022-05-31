@@ -1,37 +1,37 @@
 $(document).ready(() => {
-	var profileImgForm = $("#profile-img-form");
-	var profileImgfileInput = $("#profileImgFileInput");
-	var profileImgButton = $("#profileUploadButton");
-	var profileImg = $(".profile-img > img");
+	// var profileImgForm = $("#profile-img-form");
+	// var profileImgfileInput = $("#profileImgFileInput");
+	// var profileImgButton = $("#profileUploadButton");
+	// var profileImg = $(".profile-img > img");
 
-	$(".profile-img").mouseover(function () {
-		profileImgButton.addClass("active");
+	$("body").on("mouseover", ".profile-img", function () {
+		$("#profileUploadButton").addClass("active");
 		$(".profile-img-contain span").addClass("active");
 		$(".profile-img-contain").addClass("active");
 		$(".bg-container").addClass("active");
 	});
 
-	$(".profile-img").mouseleave(function () {
-		profileImgButton.removeClass("active");
+	$("body").on("mouseleave", ".profile-img", function () {
+		$("#profileUploadButton").removeClass("active");
 		$(".profile-img-contain span").removeClass("active");
 		$(".profile-img-contain").removeClass("active");
 		$(".bg-container").removeClass("active");
 	});
 
 	//* USER UPLOAD PROFILE IMAGE
-	profileImgButton.click(function () {
-		profileImgfileInput.trigger("click");
+	$("body").on("click", "#profileUploadButton", function () {
+		$("#profileImgFileInput").trigger("click");
 	});
 
-	profileImgfileInput.change(function () {
-		const imgFile = profileImgfileInput;
+	$("body").on("change", "#profileImgFileInput", function () {
+		const imgFile = $("#profileImgFileInput");
 
 		if (imgFile) {
-			profileImgForm.submit();
+			$("#profile-img-form").submit();
 		}
 	});
 
-	profileImgForm.submit(function (e) {
+	$("body").on("submit", "#profile-img-form", function (e) {
 		e.preventDefault();
 
 		$.ajax({
@@ -46,7 +46,10 @@ $(document).ready(() => {
 				if (data == "INVALID FILE UPLOAD") {
 					alert(data);
 				} else if (data != false) {
-					profileImg.attr("src", base_url + "assets/img/profile_img/" + data);
+					$(".profile-img > img").attr(
+						"src",
+						base_url + "assets/img/profile_img/" + data
+					);
 					$(".profile-btn img").attr(
 						"src",
 						base_url + "assets/img/profile_img/" + data
@@ -61,23 +64,21 @@ $(document).ready(() => {
 
 	//* UPLOAD BACKGROUD IMAGE
 	var bgImgForm = $("#profile-bg-form");
-	var bgfileInput = $("#bgFileInput");
-	var bgButton = $("#bgUploadButton");
 	var bg = $(".bg-container");
 
-	bgButton.click(function () {
-		bgfileInput.trigger("click");
+	$("body").on("click", `#bgUploadButton`, function () {
+		$("#bgFileInput").trigger("click");
 	});
 
-	bgfileInput.change(function () {
-		const imgFile = bgfileInput;
+	$("body").on("change", "#bgFileInput", function () {
+		const imgFile = $("#bgFileInput");
 
 		if (imgFile) {
 			bgImgForm.submit();
 		}
 	});
 
-	bgImgForm.submit(function (e) {
+	$("body").on("submit", "#profile-bg-form", function (e) {
 		e.preventDefault();
 
 		$.ajax({

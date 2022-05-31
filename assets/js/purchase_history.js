@@ -100,7 +100,7 @@ $(document).ready(() => {
 		})
 		.catch((err) => console.log(err));
 
-	$(".btn-view-more button").click(function () {
+	$("body").on("click", ".btn-view-more button", function () {
 		const to_fetch_amount = $(".purchase").length;
 		if (!to_fetch_amount) {
 			return;
