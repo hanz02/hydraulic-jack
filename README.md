@@ -6,7 +6,7 @@ This repo is a second-year diploma college project done by me and another classm
 
 If you are cloning this repo for your own use, please do be aware that this project was meant for a small scale personal project and is not suitable for actual development. I built this site solely for my college assignment purpose. The security and password encryption for the site may not be well implemented. (One-way encryptions are implemented for user login password however, no authentication nor security are implemented for payment gateway module. The payment gateway and pages are just for displaying purposes.)
 
-- Do note that the purchase history section under the "user profile" page has not yet been completed due to the college project deadline, which means every time you make a payment the user profile purchase history section will still remain empty and won't display the products you have bought. This repo was meant to be my personal projects accomplishment and to show my understanding on full stack web-development for portfolio purposes.
+**Note:** This repo was meant to be my personal projects accomplishment and to show my understanding on full stack web-development for portfolio purposes.
 
 ## Overview
 
