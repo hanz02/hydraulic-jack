@@ -33,6 +33,14 @@ $(document).ready(() => {
 	}
 
 	function loadProducts(result) {
+		//* if result product is more than 5 (that means there are more payment to e viewed in db), we add the "view more" button at the bottom
+		if (result.length >= 6) {
+			result.splice(-1);
+			$(".btn-view-more").addClass("show");
+		} else {
+			$(".btn-view-more").removeClass("show");
+		}
+
 		result.forEach((payment) => {
 			const htmlStr = `<div class="purchase flex">
 				<p class="f-w-heavy purchase-id">${
@@ -95,7 +103,6 @@ $(document).ready(() => {
 				$("#purchase-history-body").hide().html(htmlStr).fadeIn();
 			} else {
 				loadProducts(x);
-				$(".btn-view-more").addClass("show");
 			}
 		})
 		.catch((err) => console.log(err));
@@ -107,9 +114,6 @@ $(document).ready(() => {
 		}
 		getPurchaseProd(to_fetch_amount).then(function (x) {
 			loadProducts(x);
-			if (x.length < 5) {
-				$(".btn-view-more").removeClass("show");
-			}
 		});
 	});
 

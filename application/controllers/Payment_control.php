@@ -137,6 +137,7 @@ public function getPayHistory() {
   {
     $data = $this->input->get();
 
+    //* check if we need to load payment from specific row
     $offset = !empty($data) ? $data["offset"] : 0;
 
     if(is_null($offset)) {
@@ -150,7 +151,7 @@ public function getPayHistory() {
       * @param mixed $count
       * @param int $offset
     */
-    $db_result_payment = $this->payment_model->get_payment_record(null, $this->session->userdata('login_client_id'), 5, $offset);
+    $db_result_payment = $this->payment_model->get_payment_record(null, $this->session->userdata('login_client_id'), 6, $offset);
     if($db_result_payment == false)
     {
       echo json_encode(new stdClass);
