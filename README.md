@@ -75,8 +75,8 @@ Project Highlight and challenges:
 		
 ## Admin Site Login Credentials
 The credential to log into admin site dashboard is as below, however you can modify the login email and password to your own liking in the database after you clone or downloaded the code base.    
-**Email:** admin@hydraulicjack.com
-**Password:** hj1234567890
+**Email:** ```admin@hydraulicjack.com``` <br/>
+**Password:** ```hj1234567890```
 
 # What is CodeIgniter Framework used in our project?
 
