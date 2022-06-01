@@ -60,7 +60,7 @@ $(document).ready(() => {
 								"src",
 								base_url + "assets/img/profile_img/" + data
 							);
-							$(".profile-btn").removeClass("default");
+							$(".profile-btn").removeClass("default_profile");
 						})
 						.fadeIn(100);
 

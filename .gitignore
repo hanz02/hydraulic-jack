@@ -29,4 +29,7 @@ user_guide_src/cilexer/pycilexer.egg-info/*
 *.sublime-project
 /tests/tests/
 /tests/results/
-/assets/img/ready_artworks
+/assets/img/ready_artworks/
+/assets/img/profile_img/
+/assets/img/bg_img/
+
