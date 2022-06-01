@@ -46,15 +46,25 @@ $(document).ready(() => {
 				if (data == "INVALID FILE UPLOAD") {
 					alert(data);
 				} else if (data != false) {
-					$(".profile-img > img").attr(
-						"src",
-						base_url + "assets/img/profile_img/" + data
-					);
-					$(".profile-btn img").attr(
-						"src",
-						base_url + "assets/img/profile_img/" + data
-					);
-					$(".profile-btn").removeClass("default");
+					$(".profile-img > img")
+						.fadeOut(50, function () {
+							//* update profile image
+							$(".profile-img > img").attr(
+								"src",
+								base_url + "assets/img/profile_img/" + data
+							);
+							$(".profile-img > img").removeClass("default_profile");
+
+							//* update profile image for navbar mini profile as well
+							$(".profile-btn > img").attr(
+								"src",
+								base_url + "assets/img/profile_img/" + data
+							);
+							$(".profile-btn").removeClass("default");
+						})
+						.fadeIn(100);
+
+					// $(".profile-btn").removeClass("default");
 				} else {
 					alert("UPLOAD UNSUCCESSFUL, PLEASE TRY AGAIN");
 				}

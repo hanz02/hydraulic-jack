@@ -12,7 +12,7 @@
         <?php
           if($this->session->has_userdata('profile_img_state') == true && $this->session->userdata('profile_img_state') == 1) {
         ?> 
-            <div class="profile-btn active f-sm-ex f-ls-1">
+            <div class="profile-btn f-sm-ex f-ls-1">
               <img src="<?php echo base_url('assets/img/profile_img/') . $this->session->userdata('login_profile_img') ?>" alt="profile img">
             </div>
         <?php

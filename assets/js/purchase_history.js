@@ -97,7 +97,6 @@ $(document).ready(() => {
 	//* first time loading purchase history products
 	getPurchaseProd()
 		.then(function (x) {
-			console.log(x);
 			if (jQuery.isEmptyObject(x)) {
 				const htmlStr = `<div class="empty-message f-middle h-100 flex">
 				<h5 class="f-middle f-w-heavy">NO PRODUCT PURCHASED YET <br>
