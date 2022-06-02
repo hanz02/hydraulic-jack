@@ -6,7 +6,7 @@ This repo is a second-year diploma college project done by me and another classm
 
 If you are cloning this repo for your own use, please do be aware that this project was meant for a small scale personal project and is not suitable for actual development. I built this site solely for my college assignment purpose. The security and password encryption for the site may not be well implemented. (One-way encryptions are implemented for user login password however, no authentication nor security are implemented for payment gateway module. The payment gateway and pages are just for displaying purposes.)
 
-**Note:** This repo was meant to be my personal projects accomplishment and to show my understanding on full stack web-development for portfolio purposes.
+**Note:** This repo was meant to be my personal projects accomplishment and to show my understanding on full stack web-development for portfolio purposes. Please do not use this repo for college, school or education assignment purposes as it will be considered as plagarism offense.
 
 ## Overview
 
@@ -72,6 +72,11 @@ Project Highlight and challenges:
 
   - View All Customers' General Profile Info
     ![](assets/git-screenshots/admin-5.png)
+		
+## Admin Site Login Credentials
+The credential to log into admin site dashboard is as below, however you can modify the login email and password to your own liking in the database after you clone or downloaded the code base.    
+**Email:** ```admin@hydraulicjack.com``` <br/>
+**Password:** ```hj1234567890```
 
 # What is CodeIgniter Framework used in our project?
 
