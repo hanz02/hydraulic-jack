@@ -7,11 +7,8 @@ $(document).ready(() => {
 	//* if image loaded from cache, on.('load') will not be triggerd so we directly fade it in
 	if ($(".profile-img > img")[0].complete) {
 		$(".profile-img > img").fadeIn(350);
-		alert("cache load");
 	} else {
 		$(".profile-img > img").on("load", function () {
-			alert("on load");
-
 			$(this).fadeIn(350);
 		});
 	}
@@ -60,7 +57,6 @@ $(document).ready(() => {
 					let profileImage = new Image();
 					profileImage.onload = function () {
 						$(".profile-img > img").fadeOut(350, function () {
-							console.log("update 3");
 							//* update profile image
 							$(".profile-img > img").removeClass("default_profile");
 
@@ -127,7 +123,7 @@ $(document).ready(() => {
 							"background-image",
 							"url(" + base_url + "/assets/img/bg_img/" + data + ")"
 						);
-						bg.fadeIn(2000);
+						bg.fadeIn(1200);
 					};
 					bgimage.src = base_url + "/assets/img/bg_img/" + data;
 				} else {
@@ -154,7 +150,7 @@ $(document).ready(() => {
 							"background-image",
 							"url(" + base_url + "/assets/img/bg_img/" + bg_data.bg_img + ")"
 						);
-						bg.fadeIn(2000);
+						bg.fadeIn(1200);
 					};
 					bgimage.src = base_url + "/assets/img/bg_img/" + bg_data.bg_img;
 				} else {

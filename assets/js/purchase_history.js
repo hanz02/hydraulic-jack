@@ -1,13 +1,4 @@
 $(document).ready(() => {
-	let profileHtml;
-
-	function pause(milliseconds) {
-		var dt = new Date();
-		while (new Date() - dt <= milliseconds) {
-			/* Do nothing */
-		}
-	}
-
 	async function ajaxCall(url, data, method) {
 		return await $.ajax({
 			url: url,
@@ -31,15 +22,19 @@ $(document).ready(() => {
 			console.log(err);
 		}
 	}
+	//* variable to record amount of visible
+	let visibleHistoryPayments = 0;
 
 	function loadProducts(result) {
-		//* if result product is more than 5 (that means there are more payment to e viewed in db), we add the "view more" button at the bottom
+		//* if result product is more than 5 (that means there are more payment to be viewed in db), we add the "view more" button at the bottom
 		if (result.length >= 6) {
 			result.splice(-1);
 			$(".btn-view-more").addClass("show");
 		} else {
 			$(".btn-view-more").removeClass("show");
 		}
+		//* update amount of visible products
+		visibleHistoryPayments += result.length;
 
 		result.forEach((payment) => {
 			const htmlStr = `<div class="purchase flex">
@@ -110,12 +105,12 @@ $(document).ready(() => {
 		})
 		.catch((err) => console.log(err));
 
+	//* user click on "view more" button
 	$("body").on("click", ".btn-view-more button", function () {
-		const to_fetch_amount = $(".purchase").length;
-		if (!to_fetch_amount) {
+		if (!visibleHistoryPayments) {
 			return;
 		}
-		getPurchaseProd(to_fetch_amount).then(function (x) {
+		getPurchaseProd(visibleHistoryPayments).then(function (x) {
 			loadProducts(x);
 		});
 	});
