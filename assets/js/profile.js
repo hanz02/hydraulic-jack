@@ -1,17 +1,67 @@
+//* fade in profile image on first load
+//* if image loaded from cache, on.('load') will not be triggerd so we directly fade it in
+function loadProfileImage() {
+	if ($(".user-profile")[0].complete) {
+		$(".loading-gif").fadeOut(1000, function () {
+			$(".user-profile").fadeIn(350);
+		});
+	} else {
+		$(".user-profile").on("load", function () {
+			$(".loading-gif").fadeOut(1000, function () {
+				$(".user-profile").fadeIn(350);
+			});
+		});
+	}
+}
+
+function loadBgImage() {
+	const bg = $(".bg-container");
+
+	//* LOAD BACKGROUD IMAGE
+	$.ajax({
+		url: base_url + "profile_control/loadBgUser",
+		type: "get",
+		cache: false,
+		success: function (data) {
+			if (data != false) {
+				var bg_data = JSON.parse(data);
+
+				if (bg_data.bg_state == "1") {
+					bg.css("display", "none");
+					const bgimage = new Image();
+					bgimage.onload = function () {
+						bg.css(
+							"background-image",
+							"url(" + base_url + "/assets/img/bg_img/" + bg_data.bg_img + ")"
+						);
+						bg.fadeIn(1200);
+					};
+					bgimage.src = base_url + "/assets/img/bg_img/" + bg_data.bg_img;
+				} else {
+					bg.css("background-image", "url(" + base_url + bg_data.bg_img + ")");
+					bg.fadeIn(2000);
+				}
+			} else {
+				alert("Error loading backgroung image");
+			}
+		},
+	});
+}
+
 $(document).ready(() => {
 	// var profileImgForm = $("#profile-img-form");
 	// var profileImgfileInput = $("#profileImgFileInput");
 	// var profileImgButton = $("#profileUploadButton");
 	// var profileImg = $(".profile-img > img");
-	//* fade in profile image on first load
-	//* if image loaded from cache, on.('load') will not be triggerd so we directly fade it in
-	if ($(".profile-img > img")[0].complete) {
-		$(".profile-img > img").fadeIn(350);
-	} else {
-		$(".profile-img > img").on("load", function () {
-			$(this).fadeIn(350);
-		});
-	}
+
+	//* this event fires when profile page elements are loaded
+	//* this event is also fired when user close the receipt page and when the profile page elements are loaded
+
+	var bgImgForm = $("#profile-bg-form");
+	var bg = $(".bg-container");
+
+	loadProfileImage();
+	loadBgImage();
 
 	$("body").on("mouseover", ".profile-img", function () {
 		$("#profileUploadButton").addClass("active");
@@ -56,17 +106,18 @@ $(document).ready(() => {
 				} else if (data != false) {
 					let profileImage = new Image();
 					profileImage.onload = function () {
-						$(".profile-img > img").fadeOut(350, function () {
+						$(".user-profile").fadeOut(350, function () {
 							//* update profile image
-							$(".profile-img > img").removeClass("default_profile");
+							$(".user-profile").removeClass("default_profile");
 
 							profileImage = $(profileImage).hide();
-							$(".profile-img > img").replaceWith(profileImage);
+							$(profileImage).addClass("user-profile");
+							$(".user-profile").replaceWith(profileImage);
 							// .on("load", function () {
 							// 	$(".profile-img > img").fadeIn(1000);
 							// });
 
-							$(".profile-img > img").fadeIn(1000);
+							$(".user-profile").fadeIn(1000);
 						});
 					};
 					profileImage.src = base_url + "/assets/img/profile_img/" + data;
@@ -87,9 +138,6 @@ $(document).ready(() => {
 	});
 
 	//* UPLOAD BACKGROUD IMAGE
-	var bgImgForm = $("#profile-bg-form");
-	var bg = $(".bg-container");
-
 	$("body").on("click", `#bgUploadButton`, function () {
 		$("#bgFileInput").trigger("click");
 	});
@@ -131,35 +179,5 @@ $(document).ready(() => {
 				}
 			},
 		});
-	});
-
-	//* LOAD BACKGROUD IMAGE
-	$.ajax({
-		url: base_url + "profile_control/loadBgUser",
-		type: "get",
-		cache: false,
-		success: function (data) {
-			if (data != false) {
-				var bg_data = JSON.parse(data);
-
-				if (bg_data.bg_state == "1") {
-					bg.css("display", "none");
-					const bgimage = new Image();
-					bgimage.onload = function () {
-						bg.css(
-							"background-image",
-							"url(" + base_url + "/assets/img/bg_img/" + bg_data.bg_img + ")"
-						);
-						bg.fadeIn(1200);
-					};
-					bgimage.src = base_url + "/assets/img/bg_img/" + bg_data.bg_img;
-				} else {
-					bg.css("background-image", "url(" + base_url + bg_data.bg_img + ")");
-					bg.fadeIn(2000);
-				}
-			} else {
-				alert("Error loading backgroung image");
-			}
-		},
 	});
 });

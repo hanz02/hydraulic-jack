@@ -2,6 +2,7 @@
 <?php $this->load->view('include/check_login'); ?>
 <link rel="stylesheet" href="<?php base_url() ?>assets/css/profile_style.css">
 <link rel="stylesheet" href="<?php base_url() ?>assets/css/profile_pay_products.css">
+<link rel="stylesheet" href="<?php echo base_url()?>assets/css/payment_style.css ">
 
 <script src="<?php echo base_url() ?>assets/js/profile.js"></script>
 <script src="<?php echo base_url() ?>assets/js/purchase_history.js"></script>
@@ -48,6 +49,7 @@
        
                   <span></span>
                   <div class="profile-img flex">
+                    <img class="loading-gif" src="<?php echo base_url("assets/img/loading.gif") ?>" />
                     <?php
                       if($data->profile_img_state === '0') {  
                     ?>
@@ -55,7 +57,7 @@
                     <?php
                       } else {
                     ?>
-                      <img src="<?php echo base_url('assets/img/profile_img/'.$data->profile_img)?>" alt="">
+                      <img class="user-profile" src="<?php echo base_url('assets/img/profile_img/'.$data->profile_img)?>" alt="">
                     <?php
                       }
                     ?> 
