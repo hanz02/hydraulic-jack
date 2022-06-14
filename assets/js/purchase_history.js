@@ -21,27 +21,33 @@ function loadProducts(result) {
 				payment.payment_id
 			}">
 			<div class="purchase-img">
+				<div class="img">
+					<img src="
 				${
 					payment.art_data[0]
-						? `<div class="img">
-								<img src="${base_url}${payment.art_data[0].product_img}" alt="${payment.art_data[0].product_name}">
-							</div>`
-						: `<div class="img empty"></div>`
+						? `${base_url}${payment.art_data[0].product_img}" alt="${payment.art_data[0].product_name}`
+						: `${base_url}assets/img/logo_og_small_1.png" alt="Hydraulic Jack`
 				}
+					">
+				</div>
+				<div class="img">
+					<img src="
 				${
 					payment.art_data[1]
-						? `<div class="img">
-								<img src="${base_url}${payment.art_data[1].product_img}" alt="${payment.art_data[1].product_name}">
-							</div>`
-						: `<div class="img empty"></div>`
+						? `${base_url}${payment.art_data[1].product_img}" alt="${payment.art_data[1].product_name}`
+						: `${base_url}assets/img/logo_og_small_1.png" alt="Hydraulic Jack`
 				}
+					">
+				</div>
+				<div class="img">
+					<img src="
 				${
 					payment.art_data[2]
-						? `<div class="img">
-								<img src="${base_url}${payment.art_data[2].product_img}" alt="${payment.art_data[2].product_name}">
-							</div>`
-						: `<div class="img empty"></div>`
+						? `${base_url}${payment.art_data[2].product_img}" alt="${payment.art_data[2].product_name}`
+						: `${base_url}assets/img/logo_og_small_1.png" alt="Hydraulic Jack`
 				}
+					">
+				</div>
 
 			</div>
 			<div class="purchase-body flex">
@@ -136,6 +142,7 @@ $(document).ready(() => {
 		});
 	});
 
+	let payresult;
 	async function viewPaymentDetails(payment_id) {
 		try {
 			const result = await ajaxCall(
@@ -146,6 +153,7 @@ $(document).ready(() => {
 				"GET"
 			);
 
+			payresult = result;
 			profileHtml = $("body").html();
 			$("head").append(
 				`<link rel="stylesheet" href="${base_url}assets/css/payment_style.css ">`
@@ -191,6 +199,9 @@ $(document).ready(() => {
 	$("body").on("click", "#btn-close-pay-history", function () {
 		if (profileHtml) {
 			sessionStorage.removeItem("onview_payment_receipt");
+
+			// $(payresult)[1].remove();
+
 			$(".receipt").remove();
 			$("footer").slice(1).remove();
 			$("header").slice(1).remove();

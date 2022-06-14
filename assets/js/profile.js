@@ -54,12 +54,10 @@ $(document).ready(() => {
 	// var profileImgButton = $("#profileUploadButton");
 	// var profileImg = $(".profile-img > img");
 
-	//* this event fires when profile page elements are loaded
-	//* this event is also fired when user close the receipt page and when the profile page elements are loaded
-
 	var bgImgForm = $("#profile-bg-form");
 	var bg = $(".bg-container");
 
+	//* fade in and load profile and bg
 	loadProfileImage();
 	loadBgImage();
 
@@ -100,13 +98,21 @@ $(document).ready(() => {
 			processData: false,
 			contentType: false,
 			cache: false,
+			beforeSend: function () {
+				$(".user-profile").fadeOut(100, () => {
+					$(".loading-gif").fadeIn(100);
+				});
+			},
 			success: function (data) {
 				if (data == "INVALID FILE UPLOAD") {
+					$(".loading-gif").fadeOut(100, () => {
+						$(".user-profile").fadeIn(100);
+					});
 					alert(data);
 				} else if (data != false) {
 					let profileImage = new Image();
 					profileImage.onload = function () {
-						$(".user-profile").fadeOut(350, function () {
+						$(".loading-gif").fadeOut(350, function () {
 							//* update profile image
 							$(".user-profile").removeClass("default_profile");
 
