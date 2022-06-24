@@ -116,9 +116,19 @@ h3 {
 }
 
 .profile-image-wrap {
-	/* border: white solid 1px; */
+	/* border: white solid 2px; */
 	position: relative;
 	z-index: 9999;
+	clip-path: polygon(
+		67.71% 100%,
+		100% 67.71%,
+		100% 33.29%,
+		67.71% 0%,
+		33.29% 0%,
+		0% 33.29%,
+		0% 67.71%,
+		33.29% 100%
+	);
 }
 .profile-img-contain::before {
 	/** MIDDLE FRAME  */
@@ -428,7 +438,7 @@ h3 {
 	background-color: #282120;
 }
 
-@media all and (min-width: 350px) {
+@media all and (min-width: 370px) {
 	.profile-img-contain::before {
 		border: 8px solid white;
 	}
@@ -447,6 +457,10 @@ h3 {
 		margin: 3rem;
 		width: 220px;
 		height: 220px;
+	}
+
+	.profile-img-contain > span {
+		border: white solid 1rem;
 	}
 
 	.profile-body {
