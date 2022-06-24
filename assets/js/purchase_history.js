@@ -209,6 +209,7 @@ $(document).ready(() => {
 
 			$("body")
 				.children()
+				.not("style")
 				// .hide()
 				// .html(profileHtml)
 				.fadeIn(300, function () {});

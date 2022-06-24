@@ -61,16 +61,14 @@ $(document).ready(() => {
 	loadProfileImage();
 	loadBgImage();
 
-	$("body").on("mouseover", ".profile-img", function () {
+	$("body").on("mouseover", ".profile-img-contain", function () {
 		$("#profileUploadButton").addClass("active");
-		$(".profile-img-contain span").addClass("active");
 		$(".profile-img-contain").addClass("active");
 		$(".bg-container").addClass("active");
 	});
 
-	$("body").on("mouseleave", ".profile-img", function () {
+	$("body").on("mouseleave", ".profile-img-contain", function () {
 		$("#profileUploadButton").removeClass("active");
-		$(".profile-img-contain span").removeClass("active");
 		$(".profile-img-contain").removeClass("active");
 		$(".bg-container").removeClass("active");
 	});

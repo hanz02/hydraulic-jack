@@ -137,8 +137,8 @@ h3 {
 	border: 1px solid white;
 	box-shadow: 0 0 5px 2px rgba(250, 223, 223, 0.7),
 		inset 0 0 5px 2px rgba(248, 212, 212, 0.7);
-	width: 75%;
-	height: 75%;
+	width: 79%;
+	height: 79%;
 }
 
 /** OUTERMOST  */
@@ -150,7 +150,7 @@ h3 {
 	top: 50%;
 	left: 50%;
 
-	border: solid 10px white;
+	border: solid 13px white;
 	background: rgba(0, 0, 0, 0.8);
 	z-index: 999;
 
@@ -159,7 +159,7 @@ h3 {
 	transition: all 650ms ease-out;
 }
 
-.profile-img-contain span.active {
+.profile-img-contain.active > span {
 	width: 0%;
 	height: 0%;
 
@@ -538,7 +538,7 @@ h3 {
 	}
 
 	.profile-img-contain > span {
-		border: solid 12px white;
+		border: solid 16px white;
 	}
 
 	.profile-img-contain::before {

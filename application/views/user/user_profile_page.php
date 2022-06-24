@@ -78,7 +78,7 @@
             </div>
           </div>
         
-<section class="bg-prof-pody">
+        <section class="bg-prof-pody">
 
           <div class="profile-body card p-y4 container grid">
             <div class="users-details f-middle ">
@@ -148,7 +148,7 @@
               }
             ?>
         </div>
-</section>
+      </section>
 
 
   </main>
