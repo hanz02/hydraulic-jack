@@ -61,17 +61,18 @@ $(document).ready(() => {
 	loadProfileImage();
 	loadBgImage();
 
-	$("body").on("mouseover", ".profile-img-contain", function () {
-		$("#profileUploadButton").addClass("active");
-		$(".profile-img-contain").addClass("active");
-		$(".bg-container").addClass("active");
-	});
+	// $("body").on("mouseover", ".profile-image-wrap", function () {
+	// 	$("#profileUploadButton").addClass("active");
+	// 	$(".profile-img-contain").addClass("active");
+	// 	$(".bg-container").addClass("active");
+	// 	console.log("heerers");
+	// });
 
-	$("body").on("mouseleave", ".profile-img-contain", function () {
-		$("#profileUploadButton").removeClass("active");
-		$(".profile-img-contain").removeClass("active");
-		$(".bg-container").removeClass("active");
-	});
+	// $("body").on("mouseleave", ".profile-image-wrap", function () {
+	// 	$("#profileUploadButton").removeClass("active");
+	// 	$(".profile-img-contain").removeClass("active");
+	// 	$(".bg-container").removeClass("active");
+	// });
 
 	//* USER UPLOAD PROFILE IMAGE
 	$("body").on("click", "#profileUploadButton", function () {

@@ -39,34 +39,37 @@
             ?>
 
             <div class="profile-head flex">
-              <?php
-                echo form_open_multipart('products_control/display_product_details', array(
-                    "method" => "POST",
-                    "class" => "profile-img-contain",
-                    "id" => "profile-img-form"
-                ));
-              ?>
-       
-                  <span></span>
-                  <div class="profile-img flex">
-                    <img class="loading-gif" src="<?php echo base_url("assets/img/loading.gif") ?>" />
-                    <?php
-                      if($data->profile_img_state === '0') {  
-                    ?>
-                      <img class="default_profile" src="<?php echo base_url('assets/img/default_account.png')?>" alt="">
-                    <?php
-                      } else {
-                    ?>
-                      <img class="user-profile" src="<?php echo base_url('assets/img/profile_img/'.$data->profile_img)?>" alt="">
-                    <?php
-                      }
-                    ?> 
-                    <input type="file" name="profile-img-upload" id="profileImgFileInput">
-                    <label for="file" class="f-middle upload-btn-profile f-sm-ex f-w-heavy flex" id="profileUploadButton">CHANGE PHOTO</label>
-                  </div>
-              <?php
-                echo form_close();
-              ?>
+              <div class="profile-image-wrap">
+                <?php
+                  echo form_open_multipart('products_control/display_product_details', array(
+                      "method" => "POST",
+                      "class" => "profile-img-contain",
+                      "id" => "profile-img-form"
+                  ));
+                ?>
+        
+                    <span></span>
+                    <div class="profile-img flex">
+                      <img class="loading-gif" src="<?php echo base_url("assets/img/loading.gif") ?>" />
+                      <?php
+                        if($data->profile_img_state === '0') {  
+                      ?>
+                        <img class="default_profile" src="<?php echo base_url('assets/img/default_account.png')?>" alt="">
+                      <?php
+                        } else {
+                      ?>
+                        <img class="user-profile" src="<?php echo base_url('assets/img/profile_img/'.$data->profile_img)?>" alt="">
+                      <?php
+                        }
+                      ?> 
+                      <input type="file" name="profile-img-upload" id="profileImgFileInput">
+                      <label for="file" class="f-middle upload-btn-profile f-sm-ex f-w-heavy flex" id="profileUploadButton">CHANGE PHOTO</label>
+                    </div>
+                <?php
+                  echo form_close();
+                ?>
+              </div>
+              
 
               
               <div class="user-name f-middle">
