@@ -209,6 +209,10 @@ textarea {
 	padding-top: 10rem;
 }
 
+.p-x-sm {
+	padding: 0 0.5rem;
+}
+
 .p-x1 {
 	padding: 0 1rem;
 }

@@ -150,7 +150,7 @@
                                 <div class="spec_report m-y3 f-sm-1 p-y2">
                                     <div class="grid">
                                         <div class="rating_report">
-                                            <h3 class="f-middle f-w-heavy">RATINGS</h3>
+                                            <h3 class="p-x-sm f-middle f-w-heavy">RATINGS</h3>
                                             <div class="grid">
                                                 <div class="rating_stars">
                                                     <div>
@@ -218,9 +218,9 @@
                                                 </div>
                                                 <div class="total_revenue m-y2">
                                                     <div class="title">
-                                                        <span class="f-w-heavy f-sm-2">TOTAL REVENUE / SALES</span>
+                                                        <span class="f-w-heavy f-sm-1">TOTAL REVENUE / SALES</span>
                                                     </div>
-                                                    <span class="f-md f-ls-4 price">
+                                                    <span class="f-sm-2 f-ls-4 price">
                                                         RM<?php echo $detail->total_revenue?>
                                                     </span>
                                                 </div>

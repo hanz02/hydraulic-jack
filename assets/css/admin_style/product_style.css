@@ -461,6 +461,11 @@
 	grid-template-columns: 1fr;
 }
 
+#admin.admin_product_spec .rating_report h3 {
+	font-size: 1.25rem;
+	margin-right: 1.8rem;
+}
+
 #admin.admin_product_spec .rating_stars > *,
 #admin.admin_product_spec .rating_nums > * {
 	letter-spacing: 6px;
@@ -513,14 +518,22 @@
 @media all and (min-width: 312px) {
 	#admin.admin_product_spec .rating_stars > *,
 	#admin.admin_product_spec .rating_nums > * {
-		font-size: 0.9rem;
+		font-size: 0.8rem;
 	}
 }
 
-@media all and (min-width: 360px) {
+@media all and (min-width: 380px) {
 	#admin.admin_product_spec .rating_stars > *,
 	#admin.admin_product_spec .rating_nums > * {
 		font-size: 1.1rem;
+	}
+
+	#admin .spec_report .total_revenue .price {
+		font-size: 1.9rem;
+	}
+
+	#admin .spec_report .total_revenue .f-sm-1 {
+		font-size: 1.6rem;
 	}
 }
 
