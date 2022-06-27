@@ -117,6 +117,15 @@ $(document).ready(() => {
 	});
 
 	//* VIEW PRODUCT SPEC
+	var imgObj = new Image();
+	imgObj.src = $(".product_img img").attr("src");
+
+	//* if image is a landscape (scale height accordingly and fit to parent container)
+	if (imgObj.width < imgObj.height && imgObj.height - imgObj.width > 100) {
+		console.log("this is potrait");
+		$(".product_img").addClass("portrait");
+	}
+
 	$(".product_name a").click(function () {
 		$(this).parent().closest("form").submit();
 	});

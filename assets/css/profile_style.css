@@ -438,7 +438,7 @@ h3 {
 	background-color: #282120;
 }
 
-@media all and (min-width: 370px) {
+@media all and (min-width: 360px) {
 	.profile-img-contain::before {
 		border: 8px solid white;
 	}
@@ -460,7 +460,7 @@ h3 {
 	}
 
 	.profile-img-contain > span {
-		border: white solid 1rem;
+		border: white solid 1.3rem;
 	}
 
 	.profile-body {
@@ -549,7 +549,7 @@ h3 {
 	}
 
 	.profile-img-contain > span {
-		border: solid 16px white;
+		border: white solid 1.4rem;
 	}
 
 	.profile-img-contain::before {
