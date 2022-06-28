@@ -287,8 +287,7 @@
 
 #admin.admin_product_spec .product_img.portrait {
 	width: auto;
-	height: 100%;
-	max-height: 320px;
+	height: 320px;
 }
 
 #admin.admin_product_spec .product_img:before {
@@ -545,6 +544,19 @@
 	#admin.admin_product_spec .spec_head > .grid {
 		grid-template-columns: 1fr 1fr;
 		gap: 2rem;
+	}
+
+	#admin.admin_product_spec .product_img {
+		max-width: 420px;
+		width: 70%;
+		margin: 4rem 0;
+
+		box-shadow: -1px 1px 4px 0 rgba(0, 0, 0, 0.4);
+	}
+
+	#admin.admin_product_spec .product_img.portrait {
+		height: 360px;
+		margin: 0 4rem 4rem auto;
 	}
 
 	#admin.admin_product_spec .spec_body > .flex {

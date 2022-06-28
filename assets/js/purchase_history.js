@@ -56,7 +56,7 @@ function loadProducts(result) {
 						payment.art_data[0].product_name
 					} ${
 			payment.art_data.length - 1 > 0
-				? "+" + payment.art_data.length + "Others"
+				? "+" + payment.art_data.length + " Others"
 				: ""
 		}</a>
 					<p class="m-0">Date:<span class="f-w-heavy"> ${payment.payment_date}</span></p>
@@ -112,26 +112,6 @@ async function getPurchaseProd(offset) {
 }
 
 $(document).ready(() => {
-	// create an observer instance
-	// var observer = new MutationObserver(function (mutations) {
-	// 	console.log("okay");
-
-	// 	for (let mutationRecord of mutations) {
-	// 		mutationRecord.addedNodes.forEach((e) => {
-	// 			if (e.className === "profile-pg") {
-	// 				loadProfileImage();
-	// 				loadBgImage();
-	// 			}
-	// 		});
-	// 	}
-	// });
-
-	// // configuration of the observer:
-	// var config = { attributes: true, childList: true, characterData: true };
-
-	// // pass in the target node, as well as the observer options
-	// observer.observe(document.body, config);
-
 	//* user click on "view more" button
 	$("body").on("click", ".btn-view-more button", function () {
 		if (!visibleHistoryPayments) {
