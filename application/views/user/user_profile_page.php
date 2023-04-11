@@ -10,8 +10,7 @@
 <body>
 
   <?php $this->load->view('include/nav_bar'); ?>
-
-  <main class="profile-pg">
+  <main class="profile-pg"  <?php if (isset($access_user_type) && $access_user_type == "client") echo 'data-user-type="client"'; ?>>
 
       <div class="bg-container"></div>
       <?php

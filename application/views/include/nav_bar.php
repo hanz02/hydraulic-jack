@@ -1,4 +1,4 @@
-<header class='nav'>
+<header class='nav' <?php if (isset($access_user_type)) echo 'data-user-type="client"'; ?>>
 
   <nav class='container grid'>
     <div class="logo">

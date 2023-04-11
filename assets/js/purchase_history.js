@@ -177,22 +177,20 @@ $(document).ready(() => {
 
 	//* user click to close receipt view
 	$("body").on("click", "#btn-close-pay-history", function () {
-		if (profileHtml) {
-			sessionStorage.removeItem("onview_payment_receipt");
+		sessionStorage.removeItem("onview_payment_receipt");
 
-			// $(payresult)[1].remove();
+		// $(payresult)[1].remove();
 
-			$(".receipt").remove();
-			$("footer").slice(1).remove();
-			$("header").slice(1).remove();
-			// $(".receipt").remove();
+		$(".receipt").remove();
+		$("footer").slice(1).remove();
+		$("header").slice(1).remove();
+		// $(".receipt").remove();
 
-			$("body")
-				.children()
-				.not("style")
-				// .hide()
-				// .html(profileHtml)
-				.fadeIn(300, function () {});
-		}
+		console.log("hererer");
+		$("body")
+			.children("*[data-user-type='client']")
+			// .hide()
+			// .html(profileHtml)
+			.fadeIn(300);
 	});
 });

@@ -1,5 +1,10 @@
+/**
+ * @property Session $session
+ */
+ 
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
+
 
 class Products_control extends CI_Controller {
 

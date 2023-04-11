@@ -1,4 +1,4 @@
-  <footer>
+  <footer  <?php if (isset($access_user_type) && $access_user_type == "client") echo 'data-user-type="client"'; ?>>
     <div class="container p-y3 grid">
       <div class="footer-body f-middle">
         <h3 class="f-sm-1 f-w-heavy f-ls-2">Contact</h3>

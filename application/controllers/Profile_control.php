@@ -16,6 +16,9 @@ class Profile_control extends CI_Controller {
     { //~ IF USER LOGGED IN
       $client_data = $this->user_model->get_user_data();
       $data['profile_data'] =  $client_data;
+
+  //* access user type token is to identify user type and set up data-user-type attr in profile html page (related to purchase history paymeny page viewing)
+      $data['access_user_type'] =  "client";
       $this->load->view('user/user_profile_page', $data);
       
     } else {
