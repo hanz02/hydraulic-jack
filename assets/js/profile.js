@@ -1,14 +1,18 @@
 //* fade in profile image on first load
 //* if image loaded from cache, on.('load') will not be triggerd so we directly fade it in
 function loadProfileImage() {
-	if ($(".user-profile")[0].complete) {
+	const profileHTML = $(".user-profile")[0]
+		? $(".user-profile")
+		: $(".default_profile");
+
+	if ($(profileHTML)[0].complete) {
 		$(".loading-gif").fadeOut(1000, function () {
-			$(".user-profile").fadeIn(350);
+			$(profileHTML).fadeIn(350);
 		});
 	} else {
-		$(".user-profile").on("load", function () {
+		$(profileHTML).on("load", function () {
 			$(".loading-gif").fadeOut(1000, function () {
-				$(".user-profile").fadeIn(350);
+				$(profileHTML).fadeIn(350);
 			});
 		});
 	}
@@ -16,7 +20,6 @@ function loadProfileImage() {
 
 function loadBgImage() {
 	const bg = $(".bg-container");
-
 	//* LOAD BACKGROUD IMAGE
 	$.ajax({
 		url: base_url + "profile_control/loadBgUser",
