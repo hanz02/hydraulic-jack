@@ -1,10 +1,6 @@
 //* fade in profile image on first load
 //* if image loaded from cache, on.('load') will not be triggerd so we directly fade it in
-function loadProfileImage() {
-	const profileHTML = $(".user-profile")[0]
-		? $(".user-profile")
-		: $(".default_profile");
-
+function loadProfileImage(profileHTML) {
 	if ($(profileHTML)[0].complete) {
 		$(".loading-gif").fadeOut(1000, function () {
 			$(profileHTML).fadeIn(350);
@@ -52,30 +48,15 @@ function loadBgImage() {
 }
 
 $(document).ready(() => {
-	// var profileImgForm = $("#profile-img-form");
-	// var profileImgfileInput = $("#profileImgFileInput");
-	// var profileImgButton = $("#profileUploadButton");
-	// var profileImg = $(".profile-img > img");
-
+	const profileHTML = $(".user-profile")[0]
+		? $(".user-profile")
+		: $(".default_profile");
 	var bgImgForm = $("#profile-bg-form");
 	var bg = $(".bg-container");
 
 	//* fade in and load profile and bg
-	loadProfileImage();
+	loadProfileImage(profileHTML);
 	loadBgImage();
-
-	// $("body").on("mouseover", ".profile-image-wrap", function () {
-	// 	$("#profileUploadButton").addClass("active");
-	// 	$(".profile-img-contain").addClass("active");
-	// 	$(".bg-container").addClass("active");
-	// 	console.log("heerers");
-	// });
-
-	// $("body").on("mouseleave", ".profile-image-wrap", function () {
-	// 	$("#profileUploadButton").removeClass("active");
-	// 	$(".profile-img-contain").removeClass("active");
-	// 	$(".bg-container").removeClass("active");
-	// });
 
 	//* USER UPLOAD PROFILE IMAGE
 	$("body").on("click", "#profileUploadButton", function () {
@@ -90,6 +71,7 @@ $(document).ready(() => {
 		}
 	});
 
+	//* USER UPLOAD IMAGE SUBMIT FORM
 	$("body").on("submit", "#profile-img-form", function (e) {
 		e.preventDefault();
 
@@ -101,7 +83,11 @@ $(document).ready(() => {
 			contentType: false,
 			cache: false,
 			beforeSend: function () {
-				$(".user-profile").fadeOut(100, () => {
+				const profileHTML = $(".user-profile")[0]
+					? $(".user-profile")
+					: $(".default_profile");
+
+				$(profileHTML).fadeOut(100, () => {
 					$(".loading-gif").fadeIn(100);
 				});
 			},
@@ -112,23 +98,19 @@ $(document).ready(() => {
 					});
 					alert(data);
 				} else if (data != false) {
-					let profileImage = new Image();
-					profileImage.onload = function () {
-						$(".loading-gif").fadeOut(350, function () {
-							//* update profile image
-							$(".user-profile").removeClass("default_profile");
+					const profileHTML = $(".user-profile")[0]
+						? $(".user-profile")
+						: $(".default_profile");
 
-							profileImage = $(profileImage).hide();
-							$(profileImage).addClass("user-profile");
-							$(".user-profile").replaceWith(profileImage);
-							// .on("load", function () {
-							// 	$(".profile-img > img").fadeIn(1000);
-							// });
+					$(".loading-gif").fadeOut(1000, function () {
+						profileHTML.attr(
+							"src",
+							base_url + "assets/img/profile_img/" + data
+						);
+						profileHTML.removeClass("default_profile");
 
-							$(".user-profile").fadeIn(1000);
-						});
-					};
-					profileImage.src = base_url + "/assets/img/profile_img/" + data;
+						$(profileHTML).fadeIn(350);
+					});
 
 					//* update profile image for navbar mini profile as well
 					$(".profile-btn > img").attr(
@@ -136,8 +118,6 @@ $(document).ready(() => {
 						base_url + "assets/img/profile_img/" + data
 					);
 					$(".profile-btn").removeClass("default");
-
-					// $(".profile-btn").removeClass("default");
 				} else {
 					alert("UPLOAD UNSUCCESSFUL, PLEASE TRY AGAIN");
 				}
