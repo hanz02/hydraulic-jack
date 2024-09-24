@@ -1,4 +1,4 @@
-  <?php $this->load->view('include/header'); ?>
+<?php $this->load->view('include/header'); ?>
   <link rel="stylesheet" href="<?php echo base_url() ?>/assets/css/cart_style.css ">
   <script src="<?php echo base_url() ?>assets/js/cart.js"></script>
   <?php $this->load->view('include/check_login'); ?>
@@ -11,7 +11,18 @@
         <?php
           if($cart_products > 0) {
         ?>
-        <div class="container">
+        <div class="empty-cart">
+            <div class="empty-cart-msg p-x1 f-middle">
+              <h1 class="f-w-heavy">OOPS! YOUR CART IS EMPTY</h1>
+              <a class="m-y2" href="<?php echo base_url('products') ?>">CONTINUE SHOPPPING</a>
+            </div>
+          </div>
+        
+        <?php
+          } else {
+        ?>
+
+<div class="container">
           <h2 class="f-sm-1 f-middle f-w-heavy">MY CART</h2>
           <div class="cart-products grid">
         <?php
@@ -93,15 +104,7 @@
              <button class="checkout-btn">CHECKOUT</button>
            </div>
          </div>
-        <?php
-          } else {
-        ?>
-          <div class="empty-cart">
-            <div class="empty-cart-msg p-x1 f-middle">
-              <h1 class="f-w-heavy">OOPS! YOUR CART IS EMPTY</h1>
-              <a class="m-y2" href="<?php echo base_url('products') ?>">CONTINUE SHOPPPING</a>
-            </div>
-          </div>
+          
         <?php
           }
         ?>

@@ -23,6 +23,7 @@ function loadBgImage() {
 		cache: false,
 		success: function (data) {
 			if (data != false) {
+				console.log(data);
 				var bg_data = JSON.parse(data);
 
 				if (bg_data.bg_state == "1") {
@@ -87,9 +88,9 @@ $(document).ready(() => {
 					? $(".user-profile")
 					: $(".default_profile");
 
-				$(profileHTML).fadeOut(100, () => {
+				$(profileHTML).fadeOut(100);
 					$(".loading-gif").fadeIn(100);
-				});
+
 			},
 			success: function (data) {
 				if (data == "INVALID FILE UPLOAD") {
@@ -101,16 +102,19 @@ $(document).ready(() => {
 					const profileHTML = $(".user-profile")[0]
 						? $(".user-profile")
 						: $(".default_profile");
-
-					$(".loading-gif").fadeOut(1000, function () {
-						profileHTML.attr(
-							"src",
-							base_url + "assets/img/profile_img/" + data
-						);
-						profileHTML.removeClass("default_profile");
-
-						$(profileHTML).fadeIn(350);
+						
+					$(".loading-gif").promise().done(function(){
+						$(".loading-gif").delay(1000).fadeOut(1000, function () {
+							profileHTML.attr(
+								"src",
+								base_url + "assets/img/profile_img/" + data
+							);
+							profileHTML.removeClass("default_profile");
+	
+							$(profileHTML).fadeIn(350);
+						});
 					});
+
 
 					//* update profile image for navbar mini profile as well
 					$(".profile-btn > img").attr(
